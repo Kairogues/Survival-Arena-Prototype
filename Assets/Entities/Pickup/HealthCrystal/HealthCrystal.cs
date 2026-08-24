@@ -20,12 +20,13 @@ public class HealthCrystal : Pickupable
     public override void OnDrop()
     {
         base.OnDrop();
+        pickupCollider.enabled = true;
     }
 
 
     public override void OnPickup()
     {
-        // Turn off hitbox
+        pickupCollider.enabled = false;
         // Play pickup animation
         // Play SFX
     }

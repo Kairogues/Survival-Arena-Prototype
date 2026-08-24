@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: OrbGun
   projectile: {fileID: 4038684598672568289, guid: 37f8da6cb9b71a44ab9da89d3b56a901, type: 3}
-  cooldown: 5
+  cooldown: 1
   offset: {x: 0, y: 0, z: 0}

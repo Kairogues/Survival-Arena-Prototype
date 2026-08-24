@@ -3,9 +3,16 @@ using UnityEngine;
 public class Pickupable : MonoBehaviour, IPoolable
 {
     [SerializeField] protected PooledObject pooledObjectComponent;
+    protected Collider2D pickupCollider;
 
 
 
+    private void Awake()
+    {
+        pickupCollider = GetComponent<Collider2D>();
+    }
+
+    
     private void Start()
     {
         OnDrop();

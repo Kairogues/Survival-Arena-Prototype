@@ -23,7 +23,7 @@ public class XPMagnet : Pickupable
 
     public override void OnPickup()
     {
-        // Turn off hitbox
+        pickupCollider.enabled = false;
         // Play pickup animation
         // Play SFX
     }
