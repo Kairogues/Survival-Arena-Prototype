@@ -35,7 +35,7 @@ public class MovementComponent : MonoBehaviour
 
     private void FixedUpdate()
     {
-        body.linearVelocity = currentDirection * currentSpeed * Time.fixedDeltaTime;
+        body.linearVelocity = currentDirection * currentSpeed;
     }
 
 

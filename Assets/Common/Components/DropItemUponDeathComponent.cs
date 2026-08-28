@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class DropItemUponDeathComponent : MonoBehaviour
 {
-    private const float DROP_DISTANCE = 1.0F;
+    private const float DROP_DISTANCE = 0.1F;
     [SerializeField] private List<Pickupable> itemsToDrop = new();
     [SerializeField] private LifeComponent lifeComponent;
 

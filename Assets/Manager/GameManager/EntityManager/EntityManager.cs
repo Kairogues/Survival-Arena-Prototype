@@ -42,6 +42,9 @@ public class EntityManager : MonoBehaviour
 
     // ============== XP ORB ===============
     [SerializeField] private List<XPPickup> currentXPOrbList = new();
+    public List<XPPickup> GetCurrentXPOrbList() {
+        return currentXPOrbList;
+    }
     public void RegisterXPOrb(XPPickup xpOrb)
     {
         currentXPOrbList.Add(xpOrb);
@@ -83,14 +86,5 @@ public class EntityManager : MonoBehaviour
         }
 
         return false;
-    }
-
-    
-    public void CollectAllXPOrb(PickUpItemComponent actor)
-    {
-        foreach (XPPickup xpOrb in currentXPOrbList)
-        {
-            xpOrb.ProcessPickup(actor);
-        }
     }
 }

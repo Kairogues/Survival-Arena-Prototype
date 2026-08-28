@@ -12,16 +12,11 @@ public class Pickupable : MonoBehaviour, IPoolable
         pickupCollider = GetComponent<Collider2D>();
     }
 
-    
-    private void Start()
-    {
-        OnDrop();
-    }
-
 
     public virtual void OnSpawn()
     {
         GameManager.Instance.entityManager.RegisterPickupable(this);
+        OnDrop();
     }
 
 
