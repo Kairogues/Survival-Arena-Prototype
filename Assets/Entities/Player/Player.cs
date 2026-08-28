@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private MovementComponent movementComponent;
     [SerializeField] private AttackComponent attackComponent;
     [SerializeField] private LifeComponent lifeComponent;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private InputAction moveAction;
     
 
@@ -27,6 +28,15 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 moveDirection = moveAction.ReadValue<Vector2>().normalized;
+
+        if (moveDirection.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        } else
+        {
+            spriteRenderer.flipX = false;
+        }
+
         movementComponent.UpdateDirection(moveDirection);
         attackComponent.UpdateFacingDirection(moveDirection);
         attackComponent.AutoAttackAll();
