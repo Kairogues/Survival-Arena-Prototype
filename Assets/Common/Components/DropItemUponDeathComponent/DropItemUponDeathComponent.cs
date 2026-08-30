@@ -43,7 +43,7 @@ public class DropItemUponDeathComponent : MonoBehaviour
                 );
 
                 GameManager.Instance.poolManager.Spawn(
-                        item.gameObject,
+                        item.GetItemToDrop().gameObject,
                         spawnPosition,
                         transform.rotation,
                         GameManager.Instance.entityManager.transform);

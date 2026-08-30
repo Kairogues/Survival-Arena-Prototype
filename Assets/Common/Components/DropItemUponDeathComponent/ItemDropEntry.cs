@@ -8,10 +8,15 @@ public struct DropAmountChance
     public float chance;
 }
 
-public class ItemDropEntry : MonoBehaviour
+[System.Serializable]
+public struct ItemDropEntry
 {
     [SerializeField] private List<DropAmountChance> itemDropList;
     [SerializeField] private Pickupable itemToDrop;
+    public Pickupable GetItemToDrop()
+    {
+        return itemToDrop;
+    }
 
     public int EvaluateDropAmount()
     {
