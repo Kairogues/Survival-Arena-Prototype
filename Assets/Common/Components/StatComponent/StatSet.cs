@@ -12,6 +12,11 @@ public class StatSet : ScriptableObject
         new Stat(StatType.ARMOR, 0.0f, false, 0.0f),
         new Stat(StatType.MOVEMENT_SPEED, 100.0f, false, 0.0f)
     };
+    public List<Stat> GetStatList()
+    {
+        return statList;
+    }
+    /*
     private Dictionary<StatType, Stat> statDictionary = new();
 
 
@@ -63,4 +68,5 @@ public class StatSet : ScriptableObject
         
         return returnStat;
     }
+    */
 }

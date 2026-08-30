@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class StatComponent : MonoBehaviour
 {
     [SerializeField] private StatSet statSetPrototype;
-    private StatSet statSet;
+    private Dictionary<StatType, Stat> statDictionary = new();
     private Dictionary<int, StatBuff> buffDictionary = new Dictionary<int, StatBuff>();
     private int nextBuffID = 0;
 
@@ -13,23 +13,66 @@ public class StatComponent : MonoBehaviour
 
     private void Awake()
     {
-        statSet = Instantiate(statSetPrototype);
-        statSet.SetUpStatDictionary();
+        SetUpStatDictionary();
     }
 
 
-    private void OnDestroy()
+
+    public void SetUpStatDictionary()
     {
-        Destroy(statSet);
+        foreach (Stat stat in statSetPrototype.GetStatList())
+        {
+            Stat runtimeStat = new Stat(stat);
+            statDictionary.Add(runtimeStat.GetStatType(), runtimeStat);
+        }
+    }
+
+
+    public void AddStat(Stat newStat)
+    {
+        if (GetStatInCurrentList(newStat.GetStatType()) != null)
+        {
+            Debug.LogWarning("Duplicated Stat Type found!");
+            return;
+        }
+
+        statDictionary.Add(newStat.GetStatType(), newStat);
+    }
+
+
+    public bool RemoveStat(StatType type)
+    {
+        Stat target = GetStatInCurrentList(type);
+        
+        if (target != null)
+        {
+            statDictionary.Remove(type);
+            return true;
+        }
+        
+        return false;
+    }
+
+
+    public Stat GetStatInCurrentList(StatType type)
+    {
+        Stat returnStat = statDictionary[type];
+
+        if (returnStat == null)
+        {
+            return null;
+        }
+        
+        return returnStat;
     }
 
 
     public void RecalculateStatAfterBuff(StatType type)
     {
-        Stat stat = statSet.GetStatInCurrentList(type);
+        Stat stat = GetStatInCurrentList(type);
         if (stat == null)
         {
-            UnityEngine.Debug.LogWarning("Trying to recalculate non-existing stat!");
+            Debug.LogWarning("Trying to recalculate non-existing stat!");
             return;
         }
 
@@ -50,10 +93,10 @@ public class StatComponent : MonoBehaviour
             }
         }
 
-        float currentStatValue = statSet.GetStatInCurrentList(type).GetCurrentValue();
+        float currentStatValue = GetStatInCurrentList(type).GetCurrentValue();
         currentStatValue += addAmount;
         currentStatValue *= 1.0f + multiplyAmount;
-        statSet.GetStatInCurrentList(type).UpdateStat(currentStatValue);
+        GetStatInCurrentList(type).UpdateStat(currentStatValue);
     }
 
 
@@ -90,10 +133,10 @@ public class StatComponent : MonoBehaviour
 
     public Stat GetStat(StatType type)
     {
-        Stat stat = statSet.GetStatInCurrentList(type);
+        Stat stat = GetStatInCurrentList(type);
         if (stat == null)
         {
-            UnityEngine.Debug.LogWarning("Trying to access non-existing stat!");
+            Debug.LogWarning("Trying to access non-existing stat!");
             return null;
         }
 

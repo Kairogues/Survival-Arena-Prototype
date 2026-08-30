@@ -40,6 +40,15 @@ public class Stat
     }
 
 
+    public Stat(Stat original)
+    {
+        statType = original.statType;
+        currentValue = original.currentValue;
+        useMaxValue = original.useMaxValue;
+        maxValue = original.maxValue;
+    }
+
+
     public void MaximizeCurrentStat()
     {
         currentValue = maxValue;
