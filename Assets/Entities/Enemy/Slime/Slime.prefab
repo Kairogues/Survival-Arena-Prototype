@@ -16,9 +16,11 @@ GameObject:
   - component: {fileID: 8637229688401896946}
   - component: {fileID: 8936210269203623224}
   - component: {fileID: 6163174835129862444}
+  - component: {fileID: 6467185990948736985}
   - component: {fileID: 3653655367367566065}
   - component: {fileID: 3873076954353275594}
   - component: {fileID: 3408344317359955033}
+  - component: {fileID: 1286239446079547794}
   m_Layer: 9
   m_Name: Slime
   m_TagString: Untagged
@@ -136,6 +138,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DropItemUponDeathComponent
   lootTable: {fileID: 11400000, guid: 33ad07881291b6a4b95edd330aaf14b9, type: 2}
   lifeComponent: {fileID: 2543519075771321424}
+--- !u!114 &6467185990948736985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202842604318721309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e193fb20a39c84e46bffd646c8d3a6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PathfindingComponent
+  agent: {fileID: 1286239446079547794}
+  statComponent: {fileID: 8637229688401896946}
 --- !u!212 &3653655367367566065
 SpriteRenderer:
   serializedVersion: 2
@@ -258,3 +274,25 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!195 &1286239446079547794
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202842604318721309}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5625
+  m_Speed: 3.5
+  m_Acceleration: 10000
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 0
+  m_AutoRepath: 1
+  m_Height: 0.875
+  m_BaseOffset: 0.4375
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
