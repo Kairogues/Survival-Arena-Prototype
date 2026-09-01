@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1bfce8425a8b7941bd4bfd5738dfa92, type: 3}
-  m_Name: SlimeStat
+  m_Name: ZombieStat
   m_EditorClassIdentifier: Assembly-CSharp::StatsSet
   statList:
   - statType: 0
-    currentValue: 10
+    currentValue: 150
     useMaxValue: 1
     maxValue: 20
   - statType: 1
@@ -30,6 +30,6 @@ MonoBehaviour:
     useMaxValue: 0
     maxValue: 0
   - statType: 5
-    currentValue: 3
+    currentValue: 2
     useMaxValue: 0
     maxValue: 0

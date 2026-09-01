@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6212824190552222622}
-  - component: {fileID: 6386739899931669373}
+  - component: {fileID: -222904245899998045}
   - component: {fileID: 3210883320239082284}
   - component: {fileID: 6126475282744627370}
   - component: {fileID: 2543519075771321424}
@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 3408344317359955033}
   - component: {fileID: 1286239446079547794}
   m_Layer: 9
-  m_Name: Slime
+  m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6386739899931669373
+--- !u!114 &-222904245899998045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,9 +52,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 5202842604318721309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed0093ee24795dc40a7ab71015b96f5b, type: 3}
+  m_Script: {fileID: 11500000, guid: a362940f05933794794b7394ce9a79a6, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RedBoi
+  m_EditorClassIdentifier: Assembly-CSharp::Skeleton
   pooledObjectComponent: {fileID: 3210883320239082284}
   spawnWeight: 1
   movementComponent: {fileID: 6126475282744627370}
@@ -201,7 +201,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -6884033876465804321, guid: c3c129bc39c7d1b428bcbc88672d5509, type: 3}
+  m_Sprite: {fileID: -3553234302059722272, guid: c3c129bc39c7d1b428bcbc88672d5509, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
