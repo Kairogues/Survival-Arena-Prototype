@@ -5,11 +5,11 @@ using UnityEngine.UIElements;
 public class AttackComponent : MonoBehaviour
 {
     [SerializeReference] private List<WeaponData> weaponDataList;
-    [SerializeReference] private List<Weapon> currentWeaponList;
-    private Vector2 facingDirection;
+    private List<Weapon> currentWeaponList = new();
+    private Vector2 movingDirection;
     public Vector2 GetFacingDirection()
     {
-        return facingDirection;
+        return movingDirection;
     }
     public void UpdateFacingDirection(Vector2 newFacingDirection)
     {
@@ -17,7 +17,7 @@ public class AttackComponent : MonoBehaviour
         {
             return;
         }
-        facingDirection = newFacingDirection.normalized;
+        movingDirection = newFacingDirection.normalized;
     }
 
 
@@ -45,7 +45,7 @@ public class AttackComponent : MonoBehaviour
 
     private Quaternion RotationFromDirection()
     {
-        float angle = Mathf.Atan2(facingDirection.y, facingDirection.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(movingDirection.y, movingDirection.x) * Mathf.Rad2Deg;
 
         Quaternion projectileRotation = Quaternion.Euler(0f, 0f, angle); 
 
@@ -55,11 +55,15 @@ public class AttackComponent : MonoBehaviour
 
     private AttackContext CreateAttackContext()
     {
+        Vector2 facing = movingDirection.x != 0 ?
+                (movingDirection.x > 0 ? Vector2.right : Vector2.left) 
+                : (Vector2)transform.right;
+
         return new AttackContext
         {
             position = transform.position,
             rotation = RotationFromDirection(),
-            direction = facingDirection,
+            direction = facing,
             owner = gameObject
         };
     }

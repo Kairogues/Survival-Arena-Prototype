@@ -1,31 +1,18 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Melee", menuName = "Scriptable Objects/Weapon/WeaponData")]
+[CreateAssetMenu(fileName = "MeleeWeaponBehavior", menuName = "Scriptable Objects/Weapon/MeleeWeaponBehavior")]
 public class MeleeWeaponBehavior : WeaponBehavior
 {
+    [SerializeField] private Projectile projectilePrefab;
     public override void Attack(AttackContext attackContext)
     {
-        /*
-        if (weaponData == null)
-        {
-            return;
-        }
-
-        bool isFacingLeft = Mathf.Abs(Mathf.DeltaAngle(initRotation.eulerAngles.z, 180f)) < 90f 
-                            || initRotation.eulerAngles.y == 180f;
-
-        float targetZAngle = isFacingLeft ? 180f : 0f;
-        Quaternion spawnRotation = Quaternion.Euler(0f, 0f, targetZAngle);
-
-
+        float angle = Mathf.Atan2(attackContext.direction.y, attackContext.direction.x) * Mathf.Rad2Deg;
+        float offsetAmount = 2.0f * attackContext.direction.x;
+        
         GameManager.Instance.poolManager.Spawn(
-            weaponData.projectile.gameObject,
-            initPosition,
-            spawnRotation,
-            GameManager.Instance.entityManager.transform
-        );
-
-        nextCanAttackTime = Time.time + weaponData.cooldown;
-        */
+                    projectilePrefab.gameObject,
+                    attackContext.position + new Vector3(offsetAmount, 0, 0),
+                    Quaternion.Euler(0f, 0f, angle),
+                    GameManager.Instance.entityManager.transform);
     }
 }

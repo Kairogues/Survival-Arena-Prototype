@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 592ec20a904306e4e9e4883896fb28eb, type: 3}
+  m_Name: StaffWeaponBehavior
+  m_EditorClassIdentifier: Assembly-CSharp::RangedWeaponBehavior
+  projectilePrefab: {fileID: 4038684598672568289, guid: 37f8da6cb9b71a44ab9da89d3b56a901, type: 3}

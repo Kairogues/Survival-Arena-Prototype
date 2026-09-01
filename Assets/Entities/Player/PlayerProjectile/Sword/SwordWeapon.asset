@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: SwordWeapon
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: Sword
-  projectile: {fileID: 3603372976695775047, guid: 102f6664301b1ab4d9ccededb287d3e2, type: 3}
-  cooldown: 0.3
-  offset: {x: 0, y: 0, z: 0}
+  cooldown: 2
+  weaponBehavior: {fileID: 11400000, guid: 7900b48c55ab0fd4e818640a7c88081a, type: 2}

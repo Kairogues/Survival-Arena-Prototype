@@ -12475,14 +12475,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff36d9f28eaedb04ca4494051911d3ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackComponent
-  weapons:
-  - rid: -2
-  - rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  weaponDataList:
+  - {fileID: 11400000, guid: 0d7deefd00285b04494172d053759e8f, type: 2}
+  - {fileID: 11400000, guid: 668683c1e0fae70409192f0f22dcebc0, type: 2}
 --- !u!1001 &87611489
 PrefabInstance:
   m_ObjectHideFlags: 0

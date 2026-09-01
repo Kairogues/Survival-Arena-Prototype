@@ -3,11 +3,11 @@ using UnityEngine;
 
 public class Sword : Projectile
 {
-    private const float TIME_ALIVE = 0.25f;
+    private const float TIME_ALIVE = 0.15f;
     [SerializeField] private HitboxComponent hitboxComponent;
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private MovementComponent movementComponent;
-    private float timeAlive = 0.25f;
+    private float timeAlive = 0.15f;
 
 
 
@@ -45,7 +45,6 @@ public class Sword : Projectile
     {
         base.OnSpawn();
         timeAlive = TIME_ALIVE;
-        body.transform.rotation = Quaternion.identity;
         movementComponent.UpdateDirection(transform.right);
     }
 

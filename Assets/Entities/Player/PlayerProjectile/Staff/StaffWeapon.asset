@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: StaffWeapon
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   weaponName: Staff
-  projectile: {fileID: 4038684598672568289, guid: 37f8da6cb9b71a44ab9da89d3b56a901, type: 3}
-  cooldown: 1
-  offset: {x: 0, y: 0, z: 0}
+  cooldown: 0.3
+  weaponBehavior: {fileID: 11400000, guid: d7f0692b7b5dfff4aa0cb60d28cc84ea, type: 2}
