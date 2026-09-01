@@ -5,33 +5,17 @@ public class Weapon
 {
     [SerializeField] private WeaponData weaponData;
     // [SerializeField] private bool canAttack = true;
-    private float nextCanAttackTime;
+    [SerializeField] protected float nextCanAttackTime;
 
 
 
-    public Weapon (WeaponData newWeaponData)
+    public Weapon(WeaponData data)
     {
-        weaponData = newWeaponData;
-        nextCanAttackTime = Time.time;
+        weaponData = data;
     }
 
 
-    public void ChangeWeapon(WeaponData newWeaponData)
-    {
-        weaponData = newWeaponData;
-        nextCanAttackTime = Time.time;
-    }
-
-
-    //public IEnumerator CoolingDown()
-    //{
-    //    canAttack = false;
-    //    yield return new WaitForSeconds(weaponData.cooldown);
-    //    canAttack = true;
-    //}
-
-
-    public bool CanAttack()
+    public virtual bool CanAttack()
     {
         if (Time.time <= nextCanAttackTime)
         {
@@ -42,16 +26,14 @@ public class Weapon
     }
 
 
-    public void Attack(Vector3 initPosition, Quaternion initRotation)
+    public void Attack(AttackContext context)
     {
-        if (weaponData == null)
+        if (!CanAttack()) 
         {
             return;
         }
 
-        // Quaternion spawnRotation = Quaternion.Euler(initRotation);
-        GameManager.Instance.poolManager.Spawn(weaponData.projectile.gameObject, initPosition + weaponData.offset, initRotation, GameManager.Instance.entityManager.transform);
+        weaponData.TriggerWeaponBehavior(context);
         nextCanAttackTime = Time.time + weaponData.cooldown;
-        //StartCoroutine(CoolingDown());
     }
 }

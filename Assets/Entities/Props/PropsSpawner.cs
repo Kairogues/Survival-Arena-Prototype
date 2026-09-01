@@ -4,21 +4,18 @@ using System.Collections.Generic;
 
 public class BulkRockSpawner2D : EditorWindow
 {
-    // Target container GameObject
     private GameObject targetParentObject;
 
-    // 2D Area settings (X = Width, Y = Height)
-    private Vector2 mapCenter = Vector2.zero; // (X, Y)
+    private Vector2 mapCenter = Vector2.zero;
     private Vector2 mapSize = new Vector2(1000f, 1000f);
-    private LayerMask groundLayer2D = ~0; // Everything by default
+    private LayerMask groundLayer2D = ~0;
 
-    // Rock prefabs list
-    private List<GameObject> rockPrefabs = new();
+    private List<GameObject> propPrefabs = new();
     private Vector2 scrollPos;
 
     // Generation rules
     private int rockCount = 500;
-    private bool requireGroundCollision = true; // True = must hit BoxCollider2D; False = direct random 2D placement
+    private bool requireGroundCollision = true;
 
     [MenuItem("Tools/Level Design/Bulk Rock Spawner (2D)")]
     public static void ShowWindow()
@@ -49,17 +46,17 @@ public class BulkRockSpawner2D : EditorWindow
         EditorGUILayout.Space(5);
         GUILayout.Label("Rock Prefabs List", EditorStyles.boldLabel);
 
-        int newCount = Mathf.Max(0, EditorGUILayout.IntField("Prefab Count", rockPrefabs.Count));
-        while (newCount > rockPrefabs.Count) rockPrefabs.Add(null);
-        while (newCount < rockPrefabs.Count) rockPrefabs.RemoveAt(rockPrefabs.Count - 1);
+        int newCount = Mathf.Max(0, EditorGUILayout.IntField("Prefab Count", propPrefabs.Count));
+        while (newCount > propPrefabs.Count) propPrefabs.Add(null);
+        while (newCount < propPrefabs.Count) propPrefabs.RemoveAt(propPrefabs.Count - 1);
 
-        for (int i = 0; i < rockPrefabs.Count; i++)
+        for (int i = 0; i < propPrefabs.Count; i++)
         {
             EditorGUILayout.BeginHorizontal();
-            rockPrefabs[i] = (GameObject)EditorGUILayout.ObjectField($"Rock {i + 1}", rockPrefabs[i], typeof(GameObject), false);
+            propPrefabs[i] = (GameObject)EditorGUILayout.ObjectField($"Rock {i + 1}", propPrefabs[i], typeof(GameObject), false);
             if (GUILayout.Button("X", GUILayout.Width(25)))
             {
-                rockPrefabs.RemoveAt(i);
+                propPrefabs.RemoveAt(i);
                 break;
             }
             EditorGUILayout.EndHorizontal();
@@ -67,7 +64,7 @@ public class BulkRockSpawner2D : EditorWindow
 
         if (GUILayout.Button("+ Add Prefab Slot", GUILayout.Height(20)))
         {
-            rockPrefabs.Add(null);
+            propPrefabs.Add(null);
         }
 
         EditorGUILayout.Space(5);
@@ -100,7 +97,7 @@ public class BulkRockSpawner2D : EditorWindow
             return;
         }
 
-        List<GameObject> validPrefabs = rockPrefabs.FindAll(p => p != null);
+        List<GameObject> validPrefabs = propPrefabs.FindAll(p => p != null);
         if (validPrefabs.Count == 0)
         {
             EditorUtility.DisplayDialog("Missing Prefabs", "Please assign at least one rock prefab.", "OK");

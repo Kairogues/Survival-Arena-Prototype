@@ -9037,15 +9037,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5546811851156459769, guid: 1974c4bcd8453074887230a2b77aaa4b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5546811851156459769, guid: 1974c4bcd8453074887230a2b77aaa4b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5546811851156459769, guid: 1974c4bcd8453074887230a2b77aaa4b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5546811851156459769, guid: 1974c4bcd8453074887230a2b77aaa4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12476,7 +12476,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttackComponent
   weapons:
-  - weaponData: {fileID: 11400000, guid: 0d7deefd00285b04494172d053759e8f, type: 2}
+  - rid: -2
+  - rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1001 &87611489
 PrefabInstance:
   m_ObjectHideFlags: 0

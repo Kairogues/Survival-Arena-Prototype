@@ -1,10 +1,14 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/WeaponData")]
+[CreateAssetMenu(fileName = "WeaponData", menuName = "Scriptable Objects/Weapon/WeaponData")]
 public class WeaponData : ScriptableObject
 {
     [SerializeField] public string weaponName;
-    [SerializeField] public Projectile projectile;
     [SerializeField] public float cooldown;
-    [SerializeField] public Vector3 offset;
+    [SerializeField] private WeaponBehavior weaponBehavior;
+
+    public void TriggerWeaponBehavior(AttackContext context)
+    {
+        weaponBehavior.Attack(context);
+    }
 }

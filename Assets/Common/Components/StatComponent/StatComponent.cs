@@ -17,7 +17,6 @@ public class StatComponent : MonoBehaviour
     }
 
 
-
     public void SetUpStatDictionary()
     {
         foreach (Stat stat in statSetPrototype.GetStatList())
