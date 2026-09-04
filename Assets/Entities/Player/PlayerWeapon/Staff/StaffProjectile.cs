@@ -1,13 +1,19 @@
 using System;
 using UnityEngine;
 
-public class Staff : Projectile
+public class StaffProjectile : Projectile
 {
-    private const float TIME_ALIVE = 2.0f;
+    private float baseTimeAlive = 2.0f;
     [SerializeField] private HitboxComponent hitboxComponent;
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private MovementComponent movementComponent;
+    [SerializeField] private StatComponent statComponent;
     private float timeAlive = 3.0f;
+    private int piercingCount = 1;
+    public void SetPiercingCount(int newPiercingCount)
+    {
+        piercingCount = newPiercingCount;
+    }
 
 
 
@@ -44,7 +50,7 @@ public class Staff : Projectile
     public override void OnSpawn()
     {
         base.OnSpawn();
-        timeAlive = TIME_ALIVE;
+        timeAlive = baseTimeAlive;
         movementComponent.UpdateDirection(transform.right);
     }
 
@@ -57,7 +63,13 @@ public class Staff : Projectile
 
     private void ProcessHitHurtbox(HurtboxComponent hurtboxComponent)
     {
-        SelfDestruct();
+        piercingCount--;
+
+        if (piercingCount == 0)
+        {
+            SelfDestruct();
+        }
+
     }
 
 
@@ -70,5 +82,11 @@ public class Staff : Projectile
     private void SelfDestruct()
     {
         ReleaseToPool();
+    }
+
+
+    public void AddStatBuff(StatBuff statBuff)
+    {
+        statComponent.AddBuff(statBuff);
     }
 }

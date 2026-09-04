@@ -3,8 +3,9 @@ using UnityEngine;
 public struct AttackContext
 {
     public Vector3 position;
-    public Quaternion rotation;
-    public Vector2 direction;
+    public Vector3 headingDirection;
+    public Quaternion rotationFromHeadingDirection;
+    public Vector2 facingDirection;
     public GameObject owner;
 }
 

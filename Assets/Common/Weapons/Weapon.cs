@@ -1,21 +1,36 @@
+using System;
 using UnityEngine;
 
-[System.Serializable]
-public class Weapon
+public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] private WeaponData weaponData;
-    // [SerializeField] private bool canAttack = true;
-    [SerializeField] protected float nextCanAttackTime;
-
-
-
-    public Weapon(WeaponData data)
+    [SerializeField] private string weaponName;
+    public string GetWeaponName()
     {
-        weaponData = data;
+        return weaponName;
+    }
+    [SerializeField] protected float baseCooldown = 2.0f;
+    public float GetBaseCooldown()
+    {
+        return baseCooldown;
+    }
+    private float nextCanAttackTime;
+    private int currentWeaponLevel = 1;
+    public int GetCurrentWeaponLevel()
+    {
+        return currentWeaponLevel;
+    }
+    protected Action<AttackContext> onAttackAction;
+
+
+
+    protected virtual void Awake()
+    {
+        // Initialize the weapon at level 1
+        ConfigureForLevel(GetCurrentWeaponLevel());
     }
 
 
-    public virtual bool CanAttack()
+    protected bool CanAttack()
     {
         if (Time.time <= nextCanAttackTime)
         {
@@ -33,7 +48,18 @@ public class Weapon
             return;
         }
 
-        weaponData.TriggerWeaponBehavior(context);
-        nextCanAttackTime = Time.time + weaponData.cooldown;
+        onAttackAction?.Invoke(context);
+
+        nextCanAttackTime = Time.time + baseCooldown;
     }
+
+
+    public void LevelUp()
+    {
+        currentWeaponLevel++;
+        ConfigureForLevel(GetCurrentWeaponLevel());
+    }
+
+    
+    protected abstract void ConfigureForLevel(int level);
 }

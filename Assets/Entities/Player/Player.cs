@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         }
 
         movementComponent.UpdateDirection(moveDirection);
-        attackComponent.UpdateFacingDirection(moveDirection);
-        attackComponent.AutoAttackAll();
+        attackComponent.SetMovingDirection(moveDirection);
+        attackComponent.AttackAll();
     }
 }

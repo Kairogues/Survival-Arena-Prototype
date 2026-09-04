@@ -1,8 +1,7 @@
-using System;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RangedWeaponBehavior", menuName = "Scriptable Objects/Weapon/RangedWeaponBehavior")]
-public class RangedWeaponBehavior : WeaponBehavior
+[CreateAssetMenu(fileName = "AttackInHeadingDirectionBehavior", menuName = "Scriptable Objects/Weapon/Behavior/Attack In Heading Direction")]
+public class AttackInHeadingDirection : WeaponBehavior
 {
     [SerializeField] private Projectile projectilePrefab;
     public override void Attack(AttackContext attackContext)
@@ -10,7 +9,7 @@ public class RangedWeaponBehavior : WeaponBehavior
         GameManager.Instance.poolManager.Spawn(
                 projectilePrefab.gameObject,
                 attackContext.position,
-                attackContext.rotation,
+                attackContext.rotationFromHeadingDirection,
                 GameManager.Instance.entityManager.transform);
     }
 }

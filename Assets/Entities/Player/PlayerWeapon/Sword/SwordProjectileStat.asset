@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1bfce8425a8b7941bd4bfd5738dfa92, type: 3}
-  m_Name: StaffProjectileStatset
+  m_Name: SwordProjectileStat
   m_EditorClassIdentifier: Assembly-CSharp::StatSet
   statList:
   - statType: 2
