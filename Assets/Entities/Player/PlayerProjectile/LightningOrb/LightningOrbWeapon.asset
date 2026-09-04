@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06226edc7d7c00b40b10dfc93dbd8fa0, type: 3}
-  m_Name: StaffWeapon
+  m_Name: LightningOrbWeapon
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  weaponName: Staff
+  weaponName: Lightning Orb
   cooldown: 1
-  weaponBehavior: {fileID: 11400000, guid: d7f0692b7b5dfff4aa0cb60d28cc84ea, type: 2}
+  weaponBehavior: {fileID: 11400000, guid: a902e4aa0543c87448d7fc9475f01a35, type: 2}

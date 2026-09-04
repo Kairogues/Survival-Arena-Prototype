@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4db3b6c65edb3ad47bb623e55fdba4a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StatsComponent
-  statSetPrototype: {fileID: 11400000, guid: 1ec1df3b678818a42bf89a0d15482a6d, type: 2}
+  statSetPrototype: {fileID: 11400000, guid: cd2928335309ca24a9f494d92897e364, type: 2}
 --- !u!114 &8936210269203623224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11bc556a81620d342a1ad1dbf14b8d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DropItemUponDeathComponent
-  lootTable: {fileID: 11400000, guid: 33ad07881291b6a4b95edd330aaf14b9, type: 2}
+  lootTable: {fileID: 11400000, guid: de98936e733a5694b875374a3c5cce78, type: 2}
   lifeComponent: {fileID: 2543519075771321424}
 --- !u!114 &6467185990948736985
 MonoBehaviour:

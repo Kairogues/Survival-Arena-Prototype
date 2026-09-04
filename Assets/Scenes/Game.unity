@@ -14195,6 +14195,7 @@ MonoBehaviour:
   weaponDataList:
   - {fileID: 11400000, guid: 0d7deefd00285b04494172d053759e8f, type: 2}
   - {fileID: 11400000, guid: 668683c1e0fae70409192f0f22dcebc0, type: 2}
+  - {fileID: 11400000, guid: f74bad0da4962d24d934428e40f5bc45, type: 2}
 --- !u!1001 &87611489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75071,7 +75072,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19b626b27c207c745836db63d8a08120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
-  currentEnemyPool: []
   currentEnemyList: []
   currentMonsterWeight: 0
   currentProjectileList: []
@@ -435394,8 +435394,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WaveManager
   waveDatas:
   - {fileID: 11400000, guid: c0b353c61bafbee4290bd90564cb55ab, type: 2}
-  - {fileID: 11400000, guid: b20b7d72c722f614fa2f0ba60b2a5aca, type: 2}
-  - {fileID: 11400000, guid: f1f74abe1fed14d49a0ba0ed8123d6cd, type: 2}
+  - {fileID: 11400000, guid: 5d5ea281254f5d34192ae5ddab52eca6, type: 2}
+  - {fileID: 11400000, guid: 9b17f0c63e1f44c4080339502768fb97, type: 2}
+  - {fileID: 11400000, guid: 446fcf88be31a534a980f7d48a361ed4, type: 2}
+  - {fileID: 11400000, guid: 87bad155726fac54288218762d817d7c, type: 2}
+  - {fileID: 11400000, guid: 859988ddd6d8c2f41938c92c1df3d5d4, type: 2}
+  - {fileID: 11400000, guid: d68082d6101037d47bff57d1c0885e0e, type: 2}
+  - {fileID: 11400000, guid: f8ae9fb21906b684c8fd1f8feed93704, type: 2}
+  - {fileID: 11400000, guid: 31c342ec972ceef4290ba3bdf8677cae, type: 2}
+  - {fileID: 11400000, guid: cb3ab1822b5b05345bfba798fca579b1, type: 2}
+  - {fileID: 11400000, guid: 1e34f79a08866864e8dfdb4536255e02, type: 2}
+  - {fileID: 11400000, guid: c78ff291c38e9394a9b10fe6e3387d87, type: 2}
+  - {fileID: 11400000, guid: c378fed9181f41b42b13060262ab9285, type: 2}
+  - {fileID: 11400000, guid: ec664a3d19bb4be43af8a2d68146e0c4, type: 2}
+  - {fileID: 11400000, guid: 867ea917be01cef48864216933f7d0f4, type: 2}
+  - {fileID: 11400000, guid: c9afb8bc038c33c4390a3c81ed11c0a7, type: 2}
+  - {fileID: 11400000, guid: 102effac91550964eba92b3b20f80083, type: 2}
+  - {fileID: 11400000, guid: 443e99310d7176743aad5dbdef78b2b4, type: 2}
+  - {fileID: 11400000, guid: 62d802f451d705748a6787f3dd29b8a3, type: 2}
+  - {fileID: 11400000, guid: aa8631398a419f2498be3f694f350573, type: 2}
 --- !u!1001 &1915855612
 PrefabInstance:
   m_ObjectHideFlags: 0

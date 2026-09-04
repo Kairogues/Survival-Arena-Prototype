@@ -8,9 +8,9 @@ public class RangedWeaponBehavior : WeaponBehavior
     public override void Attack(AttackContext attackContext)
     {
         GameManager.Instance.poolManager.Spawn(
-                    projectilePrefab.gameObject,
-                    attackContext.position,
-                    attackContext.rotation,
-                    GameManager.Instance.entityManager.transform);
+                projectilePrefab.gameObject,
+                attackContext.position,
+                attackContext.rotation,
+                GameManager.Instance.entityManager.transform);
     }
 }

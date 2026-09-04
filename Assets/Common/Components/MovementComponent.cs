@@ -18,6 +18,10 @@ public class MovementComponent : MonoBehaviour
     }
     
     private float currentSpeed = 0.0f;
+    public float GetSpeed()
+    {
+        return currentSpeed;
+    }
     public void SetSpeed(float newSpeed)
     {
         currentSpeed = newSpeed;

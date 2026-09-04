@@ -10,9 +10,9 @@ public class MeleeWeaponBehavior : WeaponBehavior
         float offsetAmount = 2.0f * attackContext.direction.x;
         
         GameManager.Instance.poolManager.Spawn(
-                    projectilePrefab.gameObject,
-                    attackContext.position + new Vector3(offsetAmount, 0, 0),
-                    Quaternion.Euler(0f, 0f, angle),
-                    GameManager.Instance.entityManager.transform);
+                projectilePrefab.gameObject,
+                attackContext.position + new Vector3(offsetAmount, 0, 0),
+                Quaternion.Euler(0f, 0f, angle),
+                GameManager.Instance.entityManager.transform);
     }
 }
