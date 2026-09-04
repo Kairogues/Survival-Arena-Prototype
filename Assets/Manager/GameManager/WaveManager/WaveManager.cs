@@ -32,6 +32,8 @@ public class WaveManager : MonoBehaviour
     {
         SpawnIntervalCountdown(Time.deltaTime);
         WaveCountdown(Time.deltaTime);
+
+        SpawnUntilReachMinimumWeight();
     }
 
 
@@ -45,6 +47,8 @@ public class WaveManager : MonoBehaviour
 
         currentSpawnCountdown = currentWave.spawnInterval;
         currentWaveCountdown = currentWave.waveDuration;
+
+        Debug.Log("Start wave " + (currentWaveIndex + 1));
 
         WaveStarted?.Invoke(currentWave);
     }
@@ -132,6 +136,21 @@ public class WaveManager : MonoBehaviour
         if (spawnedEnemy == null)
         {
             return;
+        }
+    }
+
+    private void SpawnUntilReachMinimumWeight()
+    {
+        int enemyLeftToFullFill = currentWave.minimumWaveWeight - GameManager.Instance.entityManager.GetCurrentMonsterWeight();
+
+        if (enemyLeftToFullFill <= 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < enemyLeftToFullFill; i++)
+        {
+            AttemptSpawnEnemy();
         }
     }
 }

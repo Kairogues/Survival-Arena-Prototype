@@ -11,7 +11,7 @@ public class PoolManager : MonoBehaviour
     public static PoolManager Instance { get; private set; }
 
     [SerializeField] private int defaultCapacity = 40;
-    [SerializeField] private int maxPoolSize = 300;
+    [SerializeField] private int maxPoolSize = 400;
 
     // Map the object to its pool
     // Each entry is a prefab
@@ -82,6 +82,8 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(instance);
         }
+
+        //Debug.Log("BACK TO THE POOL");
     }
     #endregion
 
@@ -266,6 +268,11 @@ public class PoolManager : MonoBehaviour
         {
             instanceMap.Remove(instance);
         }
+    }
+
+    private void Update()
+    {
+        // Debug.Log("CURRENT ENEMY IN POOL " + instanceMap.Count);
     }
     #endregion
 }

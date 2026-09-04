@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba789342e5c3a6d48b60872b54013bc8, type: 3}
-  m_Name: WaveData 3
+  m_Name: WaveData 18
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
-  waveIndex: 2
+  waveIndex: 17
   waveDuration: 30
-  spawnInterval: 0.7
-  minimumWaveWeight: 40
+  spawnInterval: 1.5
+  minimumWaveWeight: 50
   enemyPool:
-  - prefab: {fileID: 6386739899931669373, guid: ea629497c432a43468d92db26d79bf99, type: 3}
-    spawnChance: 100
+  - prefab: {fileID: -222904245899998045, guid: e629368888eb2d24c8675e92caafdc81, type: 3}
+    spawnChance: 5
+  - prefab: {fileID: 2923416942090107475, guid: 01f436b098e75a741aeafdb8d2176455, type: 3}
+    spawnChance: 95

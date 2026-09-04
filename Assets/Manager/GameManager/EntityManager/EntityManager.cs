@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Pool;
 using System.Collections.Generic;
 
 /// <summary>
@@ -13,9 +12,12 @@ public class EntityManager : MonoBehaviour
     private const float ENEMY_DESPAWN_RANGE = 300.0F;
 
     // =============== ENEMY ===============
-    [SerializeField] private List<EnemySpawnEntry> currentEnemyPool;
     [SerializeField] private List<Enemy> currentEnemyList = new();
     [SerializeField] private int currentMonsterWeight = 0;
+    public int GetCurrentMonsterWeight()
+    {
+        return currentMonsterWeight;
+    }
     public void RegisterEnemy(Enemy enemy)
     { 
         currentEnemyList.Add(enemy);

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: WaveData 1
   m_EditorClassIdentifier: Assembly-CSharp::WaveData
   waveIndex: 0
-  waveDuration: 10
+  waveDuration: 30
   spawnInterval: 1
+  minimumWaveWeight: 15
   enemyPool:
   - prefab: {fileID: 6386739899931669373, guid: ea629497c432a43468d92db26d79bf99, type: 3}
     spawnChance: 100

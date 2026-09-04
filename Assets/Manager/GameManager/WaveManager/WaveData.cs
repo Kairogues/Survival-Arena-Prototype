@@ -14,5 +14,6 @@ public class WaveData : ScriptableObject
     [SerializeField] public int waveIndex;
     [SerializeField] public float waveDuration;
     [SerializeField] public float spawnInterval;
+    [SerializeField] public int minimumWaveWeight;
     [SerializeField] public List<EnemySpawnEntry> enemyPool;
 }
