@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public WaveManager waveManager;
     [SerializeField] public PoolManager poolManager;
     [SerializeField] public EntityManager entityManager;
+    [SerializeField] public UpgradeManager upgradeManager;
     
     [SerializeField] public bool enableWaveSpawning = true;
     [SerializeField] public GameObject fakeEnemy;

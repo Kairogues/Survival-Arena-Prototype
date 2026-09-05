@@ -52,9 +52,12 @@ public class LightningOrbWeapon : Weapon
 
     protected override void ConfigureForLevel(int level)
     {
-        if (levelConfigList.Count != 0)
+        if (levelConfigList.Count != 0 && level <= levelConfigList.Count)
         {
             currentLevelConfig = levelConfigList[level - 1];
+        } else
+        {
+            Debug.LogWarning("WARNING: There is no config for this level");
         }
 
         onAttackAction = ExecuteAttack;
