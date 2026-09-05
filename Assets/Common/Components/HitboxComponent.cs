@@ -42,14 +42,6 @@ public class HitboxComponent : MonoBehaviour
         RegisterHurtboxHit(hurtbox);
     }
 
-    private void OnTriggerExit2D(Collider2D hurtboxInfo)
-    {
-        if (hurtboxInfo.TryGetComponent(out HurtboxComponent hurtbox))
-        {
-            nextHitTimes.Remove(hurtbox);
-        }
-    }
-
 
     public float GetDamageAmount()
     {
@@ -66,6 +58,12 @@ public class HitboxComponent : MonoBehaviour
     public void RegisterObstacleHit()
     {
         HitObstacle?.Invoke();
+    }
+
+    
+    public void ClearNextHitRecord()
+    {
+        nextHitTimes.Clear();
     }
 }
 

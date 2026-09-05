@@ -14,22 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatsSet
   statList:
   - statType: 0
+    baseValue: 0
     currentValue: 50
     useMaxValue: 1
     maxValue: 50
   - statType: 1
+    baseValue: 0
     currentValue: 0.25
     useMaxValue: 0
     maxValue: 0
   - statType: 3
+    baseValue: 0
     currentValue: 2
     useMaxValue: 0
     maxValue: 0
   - statType: 4
+    baseValue: 0
     currentValue: 0
     useMaxValue: 0
     maxValue: 0
   - statType: 5
+    baseValue: 1.5
     currentValue: 1.5
     useMaxValue: 0
     maxValue: 0

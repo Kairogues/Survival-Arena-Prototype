@@ -5,12 +5,12 @@ using System.Collections.Generic;
 public class StatSet : ScriptableObject
 {
     [SerializeField] private List<Stat> statList = new List<Stat> {
-        new Stat(StatType.HEALTH, 100.0f, true, 100.0f),
-        new Stat(StatType.HEALTH_REGEN, 0.25f, false, 0.0f),
-        new Stat(StatType.ATTACK, 100.0f, false, 0.0f), 
-        new Stat(StatType.ATTACK_SPEED, 2.0f, false, 0.0f),
-        new Stat(StatType.ARMOR, 0.0f, false, 0.0f),
-        new Stat(StatType.MOVEMENT_SPEED, 100.0f, false, 0.0f)
+        new Stat(StatType.HEALTH, 100.0f, -1.0f, true, 100.0f),
+        new Stat(StatType.HEALTH_REGEN, 0.25f, -1.0f, false, 0.0f),
+        new Stat(StatType.ATTACK, 100.0f, -1.0f, false, 0.0f), 
+        new Stat(StatType.ATTACK_SPEED, 2.0f, -1.0f, false, 0.0f),
+        new Stat(StatType.ARMOR, 0.0f, -1.0f, false, 0.0f),
+        new Stat(StatType.MOVEMENT_SPEED, 100.0f, -1.0f, false, 0.0f)
     };
     public List<Stat> GetStatList()
     {

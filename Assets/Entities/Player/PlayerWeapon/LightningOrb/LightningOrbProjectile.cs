@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class LightningOrb : Projectile
+public class LightningOrbProjectile : Projectile
 {
     private const float ORBIT_RADIUS = 2.5f;
     private const float SPEED_MULTIPLIER = 10.0f;
@@ -9,18 +9,13 @@ public class LightningOrb : Projectile
     [SerializeField] private HitboxComponent hitboxComponent;
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private MovementComponent movementComponent;
+    [SerializeField] private StatComponent statComponent;
     private Transform playerTransform;
-    private static int CurrentMaxActiveOrbs = 3;
-    public static int GetCurrentMaxActiveOrbs()
-    {
-        return CurrentMaxActiveOrbs;
-    }
-    private static List<LightningOrb> ActiveOrbs = new List<LightningOrb>();
-    public static List<LightningOrb> GetCurrentActiveOrbs()
+    private static List<LightningOrbProjectile> ActiveOrbs = new List<LightningOrbProjectile>();
+    public static List<LightningOrbProjectile> GetCurrentActiveOrbs()
     {
         return ActiveOrbs;
     }
-    private float nextTickTime = 0.25f;
 
 
 
@@ -57,6 +52,7 @@ public class LightningOrb : Projectile
     public override void OnSpawn()
     {
         base.OnSpawn();
+        statComponent.RefreshStatDictionary();
 
         if (!ActiveOrbs.Contains(this))
         {
@@ -66,6 +62,7 @@ public class LightningOrb : Projectile
         Vector2 targetPos = CalculateTargetOrbitPosition();
         transform.position = targetPos;
         body.position = targetPos;
+        hitboxComponent.ClearNextHitRecord();
     }
 
 
@@ -97,6 +94,21 @@ public class LightningOrb : Projectile
 
         return (Vector2)playerTransform.position + offset;
     }
+
+
+    public static void ResetOrb()
+    {
+        for (int i = ActiveOrbs.Count - 1; i >= 0; i--)
+        {
+            ActiveOrbs[i].SelfDestruct();
+        }
+    }
+
+
+    public void AddStatBuff(StatBuff statBuff)
+    {
+        statComponent.AddBuff(statBuff);
+    } 
 
 
     private void SelfDestruct()

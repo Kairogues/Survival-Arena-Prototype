@@ -46,5 +46,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StaffWeapon
   weaponName: Staff
   baseCooldown: 1
+  currentWeaponLevel: 1
+  levelConfigList:
+  - projectileCount: 1
+    piercingCount: 1
+    bonusAttackDamage: 0
+  - projectileCount: 2
+    piercingCount: 1
+    bonusAttackDamage: 0
+  - projectileCount: 4
+    piercingCount: 1
+    bonusAttackDamage: 10
+  - projectileCount: 5
+    piercingCount: 2
+    bonusAttackDamage: 10
+  - projectileCount: 6
+    piercingCount: 3
+    bonusAttackDamage: 20
   projectilePrefab: {fileID: 4038684598672568289, guid: 996663485b05d9f4aa29840906954b1e, type: 3}
   firePoint: {fileID: 4529662101938701408}

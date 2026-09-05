@@ -178,6 +178,7 @@ MonoBehaviour:
   hitboxComponent: {fileID: 1465853399308539269}
   body: {fileID: 9009590237119781183}
   movementComponent: {fileID: 4344277441373539871}
+  statComponent: {fileID: 8173784223747352363}
 --- !u!114 &1400649821191016973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,4 +230,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca294fdf04a39594a8d0213d923fac9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HitboxComponent
+  SECONDS_PER_DAMAGE_TICK: 1.5
   statComponent: {fileID: 8173784223747352363}

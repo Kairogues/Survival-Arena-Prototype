@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
 
-public class Sword : Projectile
+public class SwordProjectile : Projectile
 {
     private const float TIME_ALIVE = 0.1f;
     [SerializeField] private HitboxComponent hitboxComponent;
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private MovementComponent movementComponent;
+    [SerializeField] private StatComponent statComponent;
     private float timeAlive = 0.1f;
 
 
@@ -44,8 +45,10 @@ public class Sword : Projectile
     public override void OnSpawn()
     {
         base.OnSpawn();
+        statComponent.RefreshStatDictionary();
         timeAlive = TIME_ALIVE;
         movementComponent.UpdateDirection(transform.right);
+        hitboxComponent.ClearNextHitRecord();
     }
 
 
@@ -71,4 +74,10 @@ public class Sword : Projectile
     {
         ReleaseToPool();
     }
+
+
+    public void AddStatBuff(StatBuff statBuff)
+    {
+        statComponent.AddBuff(statBuff);
+    } 
 }

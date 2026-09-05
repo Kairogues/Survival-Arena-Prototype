@@ -8,7 +8,7 @@ public class StaffProjectile : Projectile
     [SerializeField] private Rigidbody2D body;
     [SerializeField] private MovementComponent movementComponent;
     [SerializeField] private StatComponent statComponent;
-    private float timeAlive = 3.0f;
+    private float timeAlive = 2.0f;
     private int piercingCount = 1;
     public void SetPiercingCount(int newPiercingCount)
     {
@@ -50,8 +50,10 @@ public class StaffProjectile : Projectile
     public override void OnSpawn()
     {
         base.OnSpawn();
+        statComponent.RefreshStatDictionary();
         timeAlive = baseTimeAlive;
         movementComponent.UpdateDirection(transform.right);
+        hitboxComponent.ClearNextHitRecord();
     }
 
 

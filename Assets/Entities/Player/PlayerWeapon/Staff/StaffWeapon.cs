@@ -1,46 +1,68 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class StaffWeapon : Weapon
 {
+    [System.Serializable]
+    public struct LevelConfig
+    {
+        public int projectileCount;
+        public int piercingCount;
+        public float bonusAttackDamage;
+    }
+
+    [SerializeField] private List<LevelConfig> levelConfigList = new List<LevelConfig>
+    {
+        new LevelConfig
+        {
+            projectileCount = 1,
+            piercingCount = 1,
+            bonusAttackDamage = 0
+        },
+        new LevelConfig
+        {
+            projectileCount = 2,
+            piercingCount = 1,
+            bonusAttackDamage = 0
+        },
+        new LevelConfig
+        {
+            projectileCount = 4,
+            piercingCount = 1,
+            bonusAttackDamage = 10
+        },
+        new LevelConfig
+        {
+            projectileCount = 5,
+            piercingCount = 2,
+            bonusAttackDamage = 10
+        },
+        new LevelConfig
+        {
+            projectileCount = 6,
+            piercingCount = 3,
+            bonusAttackDamage = 20
+        }
+    };
+
+    private LevelConfig currentLevelConfig;
+    public LevelConfig GetLevelConfig(int currentLevel)
+    {
+        return levelConfigList[currentLevel];
+    }
+
     [SerializeField] private StaffProjectile projectilePrefab;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private int projectileCount = 1;
-    [SerializeField] private int piercingCount = 1;
-    [SerializeField] private float bonusAttackDamage = 0;
     private WaitForSeconds baseProjectileDelayInterval = new WaitForSeconds(0.1f);
 
 
 
     protected override void ConfigureForLevel(int level)
     {
-        switch (level)
+        if (levelConfigList.Count != 0)
         {
-            case 1:
-                projectileCount = 1;
-                piercingCount = 1;
-                break;
-            case 2:
-                projectileCount = 2;
-                break;
-            case 3:
-                bonusAttackDamage = 10;
-                projectileCount = 4;
-                break;
-            case 4:
-                projectileCount = 5;
-                piercingCount = 2;
-                break;
-            case 5:
-                bonusAttackDamage = 20;
-                projectileCount = 6;
-                piercingCount = 3;
-                break;
-            default:
-                bonusAttackDamage = 30;
-                projectileCount = 6;
-                piercingCount = 3;
-                break;
+            currentLevelConfig = levelConfigList[level - 1];
         }
 
         onAttackAction = ExecuteAttack;
@@ -54,11 +76,11 @@ public class StaffWeapon : Weapon
 
     private IEnumerator FireBulletInBurst(AttackContext context)
     {
-        for (int i = 0; i < projectileCount; i++)
+        for (int i = 0; i < currentLevelConfig.projectileCount; i++)
         {
             SpawnBullet(context.position, context.rotationFromHeadingDirection);
 
-            if (i < projectileCount - 1)
+            if (i < currentLevelConfig.projectileCount - 1)
             {
                 yield return baseProjectileDelayInterval;
             }
@@ -86,10 +108,10 @@ public class StaffWeapon : Weapon
 
         if (spawnedProjectile.TryGetComponent<StaffProjectile>(out var projectileInstance))
         {
-            projectileInstance.SetPiercingCount(piercingCount);
-            if (bonusAttackDamage > 0)
+            projectileInstance.SetPiercingCount(currentLevelConfig.piercingCount);
+            if (currentLevelConfig.bonusAttackDamage > 0)
             {
-                projectileInstance.AddStatBuff(new StatBuff(StatType.ATTACK, StatBuffType.ADD, bonusAttackDamage));
+                projectileInstance.AddStatBuff(new StatBuff(StatType.ATTACK, StatBuffType.ADD, currentLevelConfig.bonusAttackDamage));
             }
         }
     }

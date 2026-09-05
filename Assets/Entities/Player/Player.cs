@@ -41,4 +41,9 @@ public class Player : MonoBehaviour
         attackComponent.SetMovingDirection(moveDirection);
         attackComponent.AttackAll();
     }
+
+    public void haha()
+    {
+        Debug.Log("lol");
+    }
 }

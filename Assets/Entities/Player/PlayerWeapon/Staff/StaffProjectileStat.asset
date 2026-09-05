@@ -14,10 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatSet
   statList:
   - statType: 2
+    baseValue: 10
     currentValue: 10
     useMaxValue: 0
     maxValue: 0
   - statType: 5
+    baseValue: 10
     currentValue: 10
     useMaxValue: 0
     maxValue: 0

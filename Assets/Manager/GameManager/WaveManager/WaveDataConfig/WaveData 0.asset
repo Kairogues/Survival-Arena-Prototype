@@ -15,7 +15,7 @@ MonoBehaviour:
   waveIndex: 0
   waveDuration: 30000
   spawnInterval: 10000
-  minimumWaveWeight: 0
+  minimumWaveWeight: 1
   enemyPool:
   - prefab: {fileID: 6386739899931669373, guid: ea629497c432a43468d92db26d79bf99, type: 3}
     spawnChance: 100

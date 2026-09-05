@@ -17,6 +17,18 @@ public class StatComponent : MonoBehaviour
     }
 
 
+    public void RefreshStatDictionary()
+    {
+        buffDictionary.Clear();
+
+        foreach (Stat stat in statSetPrototype.GetStatList())
+        {
+            statDictionary[stat.GetStatType()].StatCopy(stat);
+            RecalculateStatAfterBuff(stat.GetStatType());
+        }
+    }
+
+
     public void SetUpStatDictionary()
     {
         foreach (Stat stat in statSetPrototype.GetStatList())
@@ -55,13 +67,7 @@ public class StatComponent : MonoBehaviour
 
     public Stat GetStatInCurrentList(StatType type)
     {
-        Stat returnStat = statDictionary[type];
-
-        if (returnStat == null)
-        {
-            return null;
-        }
-        
+        statDictionary.TryGetValue(type, out Stat returnStat);
         return returnStat;
     }
 
@@ -92,10 +98,11 @@ public class StatComponent : MonoBehaviour
             }
         }
 
-        float currentStatValue = GetStatInCurrentList(type).GetCurrentValue();
-        currentStatValue += addAmount;
-        currentStatValue *= 1.0f + multiplyAmount;
-        GetStatInCurrentList(type).UpdateStat(currentStatValue);
+        float calculatedValue = stat.GetBaseValue();
+        calculatedValue += addAmount;
+        calculatedValue *= 1.0f + multiplyAmount;
+        
+        stat.UpdateStat(calculatedValue);
     }
 
 
@@ -146,13 +153,19 @@ public class StatComponent : MonoBehaviour
     public void SubscribeToStat(StatType type, Action<float, float, float> listener)
     {
         Stat stat = GetStat(type);
-        stat.StatChanged += listener;
+        if (stat != null)
+        {
+            stat.StatChanged += listener;
+        }
     }
 
 
     public void UnSubscribeToStat(StatType type, Action<float, float, float> listener)
     {
         Stat stat = GetStat(type);
-        stat.StatChanged -= listener;
+        if (stat != null)
+        {
+            stat.StatChanged -= listener;
+        }
     }
 }

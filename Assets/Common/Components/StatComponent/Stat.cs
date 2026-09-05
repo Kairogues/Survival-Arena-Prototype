@@ -12,7 +12,15 @@ public class Stat
     {
         return statType;
     }
-
+    [SerializeField] private float baseValue;
+    public float GetBaseValue()
+    {
+        return baseValue;
+    }
+    public void SetBaseValue(float newBaseValue)
+    {
+        baseValue = newBaseValue;
+    }
     [SerializeField] private float currentValue;
     public float GetCurrentValue()
     {
@@ -31,10 +39,12 @@ public class Stat
     }
 
 
-    public Stat(StatType type = StatType.HEALTH, float initCurrentValue = 0, bool initUseMaxValue = false, float initMaxValue = 0)
+    public Stat(StatType type = StatType.HEALTH, float initBaseValue = 0, float initCurrentValue = -1, bool initUseMaxValue = false, float initMaxValue = 0)
     {
         statType = type;
-        currentValue = initCurrentValue;
+        baseValue = initBaseValue;
+        // If initCurrentValue is left default (-1f), initialize currentValue to match baseValue
+        currentValue = (initCurrentValue < 0) ? initBaseValue : initCurrentValue;
         useMaxValue = initUseMaxValue;
         maxValue = initMaxValue;
     }
@@ -43,9 +53,19 @@ public class Stat
     public Stat(Stat original)
     {
         statType = original.statType;
+        baseValue = original.baseValue;
         currentValue = original.currentValue;
         useMaxValue = original.useMaxValue;
         maxValue = original.maxValue;
+    }
+
+
+    public void StatCopy(Stat stat)
+    {
+        currentValue = stat.currentValue;
+        baseValue = stat.baseValue;
+        useMaxValue = stat.useMaxValue;
+        maxValue = stat.maxValue;
     }
 
 
@@ -55,6 +75,12 @@ public class Stat
     }
 
 
+    public void ResetToBaseValue()
+    {
+        UpdateStat(baseValue);
+    }
+
+    
     public void UpdateStat(float newValue) 
     {
         float oldValue = currentValue;

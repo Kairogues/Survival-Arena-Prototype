@@ -1,5 +1,5 @@
 using UnityEngine;
-
+/*
 public struct AttackContext
 {
     public Vector3 position;
@@ -8,6 +8,7 @@ public struct AttackContext
     public Vector2 facingDirection;
     public GameObject owner;
 }
+*/
 
 public abstract class WeaponBehavior : ScriptableObject
 {

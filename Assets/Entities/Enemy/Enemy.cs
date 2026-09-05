@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour, IPoolable
 {
     [SerializeField] protected PooledObject pooledObjectComponent;
     [SerializeField] private int spawnWeight;
+    [SerializeField] protected StatComponent statComponent;
     public int GetSpawnWeight()
     {
         return spawnWeight;
@@ -18,7 +19,7 @@ public class Enemy : MonoBehaviour, IPoolable
     // IPoolable
     public virtual void OnSpawn()
     {
-        // Reset riêng cho Enemy
+        statComponent.RefreshStatDictionary();
         GameManager.Instance.entityManager.RegisterEnemy(this);
     }
 

@@ -1,6 +1,15 @@
 using System;
 using UnityEngine;
 
+public struct AttackContext
+{
+    public Vector3 position;
+    public Vector3 headingDirection;
+    public Quaternion rotationFromHeadingDirection;
+    public Vector2 facingDirection;
+    public GameObject owner;
+}
+
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] private string weaponName;
@@ -14,12 +23,19 @@ public abstract class Weapon : MonoBehaviour
         return baseCooldown;
     }
     private float nextCanAttackTime;
-    private int currentWeaponLevel = 1;
+    [SerializeField] private int currentWeaponLevel = 1;
     public int GetCurrentWeaponLevel()
     {
         return currentWeaponLevel;
     }
     protected Action<AttackContext> onAttackAction;
+
+
+
+    private void OnValidate()
+    {
+        ConfigureForLevel(GetCurrentWeaponLevel());
+    }
 
 
 
