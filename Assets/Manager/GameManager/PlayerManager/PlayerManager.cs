@@ -8,7 +8,15 @@ public class PlayerManager : MonoBehaviour
 {
     public event Action PlayerDied;
     [SerializeField] private PlayerXPManager playerXPManger;
+    public PlayerXPManager GetPlayerXPManager()
+    {
+        return playerXPManger;
+    }
     [SerializeField] private PlayerGoldManager playerGoldManager;
+    public PlayerGoldManager GetPlayerGoldManager()
+    {
+        return playerGoldManager;
+    }
     public Player currentPlayer { get; private set; }
     public LifeComponent currentPlayerLifeComponent { get; private set; }
 

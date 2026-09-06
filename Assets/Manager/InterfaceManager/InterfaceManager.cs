@@ -16,6 +16,16 @@ public class InterfaceManager : MonoBehaviour
     {
         this.levelUpUI = levelUpUI;
     }
+    private InfoHUD infoHUD;
+    public InfoHUD GetInfoHUD()
+    {
+        return infoHUD;
+    }
+    public void SetInfoHUD(InfoHUD infoHUD)
+    {
+        this.infoHUD = infoHUD;
+    }
+
 
 
     private void Awake()

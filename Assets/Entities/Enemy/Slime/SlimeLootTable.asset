@@ -17,3 +17,15 @@ MonoBehaviour:
     - amount: 1
       chance: 100
     itemToDrop: {fileID: 6398523961317722671, guid: 0c72e46d320d1e346b8725583c2f6330, type: 3}
+  - itemDropList:
+    - amount: 0
+      chance: 99
+    - amount: 1
+      chance: 1
+    itemToDrop: {fileID: -7265786017965568393, guid: 6e30eeac04e49d442b206d1f73d8dd35, type: 3}
+  - itemDropList:
+    - amount: 0
+      chance: 98
+    - amount: 1
+      chance: 2
+    itemToDrop: {fileID: -4357663842267517699, guid: 199238bb4a49b86499ddc79b2940239f, type: 3}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerXPManager : MonoBehaviour
 {
-    public event Action<int> GainedXP;
+    public event Action<int, int> GainedXP;
     public event Action<int> LeveledUp;
     
     [SerializeField] private XPGrowthConfig xpGrowthConfig;
@@ -42,9 +42,8 @@ public class PlayerXPManager : MonoBehaviour
             currentMaxXP = GetXPRequiredForLevelUp(currentLevel + 1);
         }
 
-        GainedXP?.Invoke(currentXP);
+        GainedXP?.Invoke(currentXP, currentMaxXP);
     }
-
 
     public void TriggerLevelUp()
     {
