@@ -54,6 +54,7 @@ public class StaffWeapon : Weapon
 
     [SerializeField] private StaffProjectile projectilePrefab;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private AudioClip attackSoundFX;
     private WaitForSeconds baseProjectileDelayInterval = new WaitForSeconds(0.1f);
 
 
@@ -81,6 +82,7 @@ public class StaffWeapon : Weapon
     {
         for (int i = 0; i < currentLevelConfig.projectileCount; i++)
         {
+            ApplicationManager.Instance.audioManager.PlaySoundFX(attackSoundFX, transform, 1f);
             SpawnBullet(context.position, context.rotationFromHeadingDirection);
 
             if (i < currentLevelConfig.projectileCount - 1)

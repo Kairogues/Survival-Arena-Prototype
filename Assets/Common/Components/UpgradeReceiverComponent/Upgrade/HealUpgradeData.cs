@@ -7,7 +7,6 @@ public class HealUpgradeData : UpgradeData
 
     public override void Apply(GameObject target, int targetLevel)
     {
-        Stat healthStat = target.GetComponent<StatComponent>().GetStat(StatType.HEALTH);
-        healthStat.UpdateStat(healthStat.GetCurrentValue() + amount);
+        target.GetComponent<LifeComponent>().Heal(amount);
     }
 }

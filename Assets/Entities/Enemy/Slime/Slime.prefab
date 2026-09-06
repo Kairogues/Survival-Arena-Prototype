@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c770f6b7813bd48b7b0b8e2603aa12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LifeComponent
+  hurtSoundFX: {fileID: 8300000, guid: edc422d33db131042934804c91b3f8a3, type: 3}
   statComponent: {fileID: 8637229688401896946}
 --- !u!114 &8637229688401896946
 MonoBehaviour:

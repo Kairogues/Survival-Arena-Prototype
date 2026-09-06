@@ -5,6 +5,7 @@ public class LifeComponent : MonoBehaviour
 {
     public event Action Died;
     public event Action<float, float, float> HealthChanged;
+    [SerializeField] private AudioClip hurtSoundFX;
     [SerializeField] private StatComponent statComponent;
     private Stat healthStat;
 
@@ -22,12 +23,14 @@ public class LifeComponent : MonoBehaviour
         float oldHealth = healthStat.GetCurrentValue();
         float newHealth = healthStat.GetCurrentValue() + amount;
         healthStat.UpdateStat(newHealth);
+        if (newHealth > healthStat.GetMaxValue()) newHealth = healthStat.GetMaxValue();
         HealthChanged?.Invoke(oldHealth, newHealth, healthStat.GetMaxValue());
     }
 
 
     public void Damage(float amount)
     {
+        ApplicationManager.Instance.audioManager.PlaySoundFX(hurtSoundFX, transform, 1f);
         float oldHealth = healthStat.GetCurrentValue();
         float newHealth = healthStat.GetCurrentValue() - amount;
         
@@ -38,6 +41,8 @@ public class LifeComponent : MonoBehaviour
         }
 
         healthStat.UpdateStat(newHealth);
+
+        if (newHealth > healthStat.GetMaxValue()) newHealth = healthStat.GetMaxValue();
         HealthChanged?.Invoke(oldHealth, newHealth, healthStat.GetMaxValue());
     }
 

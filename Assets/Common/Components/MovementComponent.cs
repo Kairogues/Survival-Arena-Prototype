@@ -12,6 +12,10 @@ public class MovementComponent : MonoBehaviour
     [SerializeField] private StatComponent statComponent;
     private Stat movementStat;
     private Vector2 currentDirection;
+    public Vector2 GetCurrentDirection()
+    {
+        return currentDirection;
+    }
     public void UpdateDirection(Vector2 newDirection)
     {
         currentDirection = newDirection;

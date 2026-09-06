@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class GameOverTransition : MonoBehaviour
 {
+    [SerializeField] private AudioClip gameOverSoundFX;
     private Image panelImage;
 
     [System.Serializable]
@@ -34,6 +35,7 @@ public class GameOverTransition : MonoBehaviour
 
     public void PlayColorAnimation(Action onComplete = null)
     {
+        ApplicationManager.Instance.audioManager.PlaySoundFX(gameOverSoundFX, transform, 1f);
         StartCoroutine(AnimateColors(onComplete));
     }
 

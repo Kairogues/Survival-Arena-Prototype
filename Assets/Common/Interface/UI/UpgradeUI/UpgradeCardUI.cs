@@ -12,6 +12,7 @@ public class UpgradeCardUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private Button selectButton;
+    [SerializeField] private AudioClip menuClickFX;
     private UpgradeData currentUpgrade;
     
 
@@ -46,6 +47,7 @@ public class UpgradeCardUI : MonoBehaviour
 
     private void OnCardClicked()
     {
+        ApplicationManager.Instance.audioManager.PlaySoundFX(menuClickFX, transform, 1f);
         onSelectedCallback?.Invoke(currentUpgrade);
     }
 }

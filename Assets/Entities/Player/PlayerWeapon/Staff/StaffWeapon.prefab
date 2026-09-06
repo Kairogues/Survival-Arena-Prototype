@@ -65,3 +65,4 @@ MonoBehaviour:
     bonusAttackDamage: 20
   projectilePrefab: {fileID: 4038684598672568289, guid: 996663485b05d9f4aa29840906954b1e, type: 3}
   firePoint: {fileID: 4529662101938701408}
+  attackSoundFX: {fileID: 8300000, guid: ddd08c9779dabcc4ca644ea23912d94c, type: 3}

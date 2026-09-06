@@ -40,6 +40,7 @@ public class SwordWeapon : Weapon
     [SerializeField] private SwordProjectile projectilePrefab;
     [SerializeField] private Transform firePointFront;
     [SerializeField] private Transform firePointBack;
+    [SerializeField] private AudioClip attackSoundFX;
 
 
 
@@ -83,6 +84,7 @@ public class SwordWeapon : Weapon
         Quaternion facingAngleQuaternionFront = Quaternion.Euler(0f, 0f, facingAngle);
 
         SpawnBlade(firePointFront.position, facingAngleQuaternionFront);
+        ApplicationManager.Instance.audioManager.PlaySoundFX(attackSoundFX, transform, 1f);
     }
 
     private void AttackLevel2(AttackContext context)
@@ -93,6 +95,7 @@ public class SwordWeapon : Weapon
 
         SpawnBlade(firePointFront.position, facingAngleQuaternionFront);
         SpawnBlade(firePointBack.position, facingAngleQuaternionBack);
+        ApplicationManager.Instance.audioManager.PlaySoundFX(attackSoundFX, transform, 1f);
     }
 
     private void AttackLevel3(AttackContext context)
@@ -103,6 +106,7 @@ public class SwordWeapon : Weapon
 
         SpawnBlade(firePointFront.position, facingAngleQuaternionFront);
         SpawnBlade(firePointBack.position, facingAngleQuaternionBack);
+        ApplicationManager.Instance.audioManager.PlaySoundFX(attackSoundFX, transform, 1f);
     }
 
 
@@ -116,6 +120,7 @@ public class SwordWeapon : Weapon
         SpawnBlade(firePointFront.position, facingAngleQuaternionFront * Quaternion.Euler(0, 0, 10f));
 
         SpawnBlade(firePointBack.position, facingAngleQuaternionBack);
+        ApplicationManager.Instance.audioManager.PlaySoundFX(attackSoundFX, transform, 1f);
     }
 
 
@@ -130,6 +135,7 @@ public class SwordWeapon : Weapon
         SpawnBlade(firePointFront.position, facingAngleQuaternionFront * Quaternion.Euler(0, 0, 15f));
 
         SpawnBlade(firePointBack.position, facingAngleQuaternionBack);
+        ApplicationManager.Instance.audioManager.PlaySoundFX(attackSoundFX, transform, 1f);
     }
 
 

@@ -14170,6 +14170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0c770f6b7813bd48b7b0b8e2603aa12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LifeComponent
+  hurtSoundFX: {fileID: 8300000, guid: 1f874a318fd6b5f478df79c81b19f938, type: 3}
   statComponent: {fileID: 87518065}
 --- !u!114 &87518067
 MonoBehaviour:
@@ -75189,7 +75190,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 939005747}
+  m_Father: {fileID: 2087347372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &428316211
 MonoBehaviour:
@@ -180243,7 +180244,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1093329364}
   m_Father: {fileID: 939005747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &701834063
@@ -180258,6 +180260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5404d9e8ec6fc644aa5629cf5499a0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ApplicationManager
+  audioManager: {fileID: 1093329365}
 --- !u!1 &702269739 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7149061405824645443, guid: 33ceb804b6040d846a686d2a7cfc1fcf, type: 3}
@@ -225262,11 +225265,6 @@ Transform:
   - {fileID: 2087347372}
   - {fileID: 742719118}
   - {fileID: 701834062}
-  - {fileID: 974866656}
-  - {fileID: 428316210}
-  - {fileID: 1915554332}
-  - {fileID: 1289302348}
-  - {fileID: 967608118}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &939017140 stripped
@@ -231344,12 +231342,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967608117}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 939005747}
+  m_Father: {fileID: 2087347372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &967608119
 MonoBehaviour:
@@ -233240,7 +233238,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 939005747}
+  m_Father: {fileID: 2087347372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &974866657
 MonoBehaviour:
@@ -233267,6 +233265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerXPManager
   xpGrowthConfig: {fileID: 11400000, guid: 1c514d6125bc62c438afa5c6782196d5, type: 2}
+  levelUpFX: {fileID: 8300000, guid: 595566ea9c3c2714892e1ef338889d9b, type: 3}
 --- !u!1001 &975221074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -257202,6 +257201,51 @@ MonoBehaviour:
   m_Area: 1
   m_IgnoreFromBuild: 0
   m_AffectedAgents: ffffffff
+--- !u!1 &1093329363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093329364}
+  - component: {fileID: 1093329365}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1093329364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093329363}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 701834062}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1093329365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093329363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce58ccd2cdaffb49abc644b41be3798, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  audioSourcePrototype: {fileID: 1870214746133289243, guid: 234c6f38ac7f36d4a89fb91834e90e66, type: 3}
 --- !u!1 &1093591887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 238666602665460342, guid: 641336963529aaa44b4c28956f9693ee, type: 3}
@@ -285921,6 +285965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b652c80ea40a6a46a628f20f0fd4a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickUpItemComponent
+  pickupFX: {fileID: 8300000, guid: 1717372666bc81047b1a5cb318c63d42, type: 3}
 --- !u!58 &1215871489
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -288959,6 +289004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d388795c141b1e547968b09c7c0533d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverTransition
+  gameOverSoundFX: {fileID: 8300000, guid: 9c4ce44d608d5ce49b87f47c58320c4f, type: 3}
   sequence:
   - color: {r: 0, g: 0, b: 0, a: 1}
     alpha: 0.75
@@ -300306,12 +300352,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289302347}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 939005747}
+  m_Father: {fileID: 2087347372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1289302349
 MonoBehaviour:
@@ -436679,7 +436725,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 939005747}
+  m_Father: {fileID: 2087347372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1915554333
 MonoBehaviour:
@@ -478313,7 +478359,12 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 974866656}
+  - {fileID: 428316210}
+  - {fileID: 1915554332}
+  - {fileID: 1289302348}
+  - {fileID: 967608118}
   m_Father: {fileID: 939005747}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2087347373

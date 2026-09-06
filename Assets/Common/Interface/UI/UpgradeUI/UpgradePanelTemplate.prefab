@@ -702,6 +702,7 @@ MonoBehaviour:
   descriptionText: {fileID: 2096766978502503745}
   levelText: {fileID: 446120821708833398}
   selectButton: {fileID: 3321529439508965801}
+  menuClickFX: {fileID: 8300000, guid: 98e178d619927e244a077b161b6530f5, type: 3}
 --- !u!1 &7947311133563187317
 GameObject:
   m_ObjectHideFlags: 0

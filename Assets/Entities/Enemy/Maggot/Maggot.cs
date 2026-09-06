@@ -5,6 +5,7 @@ public class Maggot : Enemy
     [SerializeField] private MovementComponent movementComponent;
     [SerializeField] private LifeComponent lifeComponent;
     [SerializeField] private AttackComponent attackComponent;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
 
 
 
@@ -24,6 +25,7 @@ public class Maggot : Enemy
     void Update()
     {
         attackComponent.AttackAll();
+        FlipSprite();
     }
 
 
@@ -42,5 +44,17 @@ public class Maggot : Enemy
     protected override void Die()
     {
         base.Die();
+    }
+
+
+    protected void FlipSprite()
+    {
+        if (movementComponent.GetCurrentDirection().x < 0)
+        {
+            spriteRenderer.flipX = true;
+        } else if (movementComponent.GetCurrentDirection().x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
     }
 }

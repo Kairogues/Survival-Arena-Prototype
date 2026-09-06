@@ -8,6 +8,7 @@ public class PlayerXPManager : MonoBehaviour
     public event Action<int> LeveledUp;
     
     [SerializeField] private XPGrowthConfig xpGrowthConfig;
+    [SerializeField] private AudioClip levelUpFX;
     private int currentXP = 0;
     private int currentMaxXP;
     private int currentLevel = 1;
@@ -47,6 +48,7 @@ public class PlayerXPManager : MonoBehaviour
 
     public void TriggerLevelUp()
     {
+        ApplicationManager.Instance.audioManager.PlaySoundFX(levelUpFX, transform, 1f);
         UpgradeReceiverComponent currentUpgradeReceiverComponent = GameManager.Instance.playerManager.currentPlayer.GetUpgradeReceiverComponent();
         List<UpgradeData> options = GameManager.Instance.upgradeManager.GetRandomUpgradeOptions(currentUpgradeReceiverComponent);
         InterfaceManager.Instance.GetLevelUpUI().Show(options, currentUpgradeReceiverComponent);

@@ -6,15 +6,21 @@ using UnityEngine;
 /// </summary>
 public class ApplicationManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public static ApplicationManager Instance { get; private set; }
+    [SerializeField] public AudioManager audioManager;
 
-    // Update is called once per frame
-    void Update()
+
+
+    private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
         
+        DontDestroyOnLoad(gameObject);
     }
 }

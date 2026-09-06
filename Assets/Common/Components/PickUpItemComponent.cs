@@ -4,6 +4,7 @@ using UnityEngine;
 public class PickUpItemComponent : MonoBehaviour
 {
     public event Action<Pickupable> PickedUpItem;
+    [SerializeField] private AudioClip pickupFX;
 
 
 
@@ -13,6 +14,7 @@ public class PickUpItemComponent : MonoBehaviour
 
         if (pickupable != null)
         {
+            ApplicationManager.Instance.audioManager.PlaySoundFX(pickupFX, transform, 1f);
             PickedUpItem?.Invoke(pickupable);
             pickupable.ProcessPickup(this);
         }

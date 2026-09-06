@@ -120,3 +120,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3603372976695775047, guid: 102f6664301b1ab4d9ccededb287d3e2, type: 3}
   firePointFront: {fileID: 2176348485877066364}
   firePointBack: {fileID: 2176348485877066364}
+  attackSoundFX: {fileID: 8300000, guid: 0280095d9cf81d642b01faa08018ea0a, type: 3}
