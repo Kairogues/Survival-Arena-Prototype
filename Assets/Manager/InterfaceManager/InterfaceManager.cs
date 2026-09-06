@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// A singleton responsible for managing the user interface.
@@ -7,6 +8,11 @@ using UnityEngine;
 public class InterfaceManager : MonoBehaviour
 {
     public static InterfaceManager Instance { get; private set; }
+    [SerializeField] private GameOverTransition gameOverTransition;
+    public void SetGameOverTransition(GameOverTransition gameOverTransition)
+    {
+        this.gameOverTransition = gameOverTransition;
+    }
     private LevelUpUI levelUpUI;
     public LevelUpUI GetLevelUpUI()
     {
@@ -27,7 +33,6 @@ public class InterfaceManager : MonoBehaviour
     }
 
 
-
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -42,14 +47,8 @@ public class InterfaceManager : MonoBehaviour
     }
 
 
-    void Start()
+    public void OnPlayerDeath()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        gameOverTransition.PlayColorAnimation(() => GameManager.Instance.LoadGameOverScene());
     }
 }

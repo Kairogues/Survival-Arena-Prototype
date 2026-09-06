@@ -1,6 +1,5 @@
 using UnityEngine;
-using System;
-using System.Collections;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// A singleton responsible for orchestrating the active game loop and runtime rules.
@@ -78,19 +77,19 @@ public class GameManager : MonoBehaviour
 
     private void OnPlayerDeath()
     {
-        Debug.Log("Player died!");
+        Time.timeScale = 0;
+        InterfaceManager.Instance.OnPlayerDeath();
     }
+
+
+    public void LoadGameOverScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 
     private void ClearObjectPool(WaveData waveData)
     {
         poolManager.TryRemoveInactivePools();
     }
-
-
-    // Handle player death
-
-    // Handle wave progression
-
-    // Handle monster spawning
-
 }
