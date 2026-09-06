@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
     public Player currentPlayer { get; private set; }
     public LifeComponent currentPlayerLifeComponent { get; private set; }
 
-    
+
 
     public void GainXP(int amount)
     {

@@ -34,6 +34,7 @@ public class LifeComponent : MonoBehaviour
         }
 
         healthStat.UpdateStat(newHealth);
+        Debug.Log(name + " took " + amount + " damage");
     }
 
 

@@ -11,7 +11,6 @@ public class UpgradeManager : MonoBehaviour
 
     public List<UpgradeData> GetRandomUpgradeOptions(UpgradeReceiverComponent receiver)
     {
-        // Filter out any upgrade the player has already maxed out
         // Looks like Javascript!!
         List<UpgradeData> availableUpgrades = allUpgrades
             .Where(upgrade => !receiver.IsMaxLevel(upgrade))
@@ -19,26 +18,18 @@ public class UpgradeManager : MonoBehaviour
 
         List<UpgradeData> selectedUpgrades = new();
 
-        if (availableUpgrades.Count < UPGRADE_OPTION)
-        {
-            for (int i = 0; i < availableUpgrades.Count; i++)
-            {
-                int randomIndex = Random.Range(0, availableUpgrades.Count);
-                selectedUpgrades.Add(availableUpgrades[randomIndex]);
-                availableUpgrades.RemoveAt(randomIndex);
-            }
-
-            for (int i = 0; i < UPGRADE_OPTION - availableUpgrades.Count; i++)
-            {
-                selectedUpgrades.Add(healUpgrade);
-            }
-        }
-
-        for (int i = 0; i < UPGRADE_OPTION; i++)
+        int countToPick = Mathf.Min(UPGRADE_OPTION, availableUpgrades.Count);
+        for (int i = 0; i < countToPick; i++)
         {
             int randomIndex = Random.Range(0, availableUpgrades.Count);
             selectedUpgrades.Add(availableUpgrades[randomIndex]);
+            
             availableUpgrades.RemoveAt(randomIndex);
+        }
+
+        while (selectedUpgrades.Count < UPGRADE_OPTION)
+        {
+            selectedUpgrades.Add(healUpgrade);
         }
 
         return selectedUpgrades;

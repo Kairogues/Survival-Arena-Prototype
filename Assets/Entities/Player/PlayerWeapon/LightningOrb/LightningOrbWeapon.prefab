@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LightningOrbWeapon
   weaponName: LightningOrb
-  baseCooldown: 999
+  baseCooldown: 1
   currentWeaponLevel: 1
   levelConfigList:
   - bonusSpeedPercent: 0

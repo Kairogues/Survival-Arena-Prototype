@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -222904245899998045}
   - component: {fileID: 3210883320239082284}
   - component: {fileID: 6126475282744627370}
+  - component: {fileID: 5624438357122337773}
   - component: {fileID: 2543519075771321424}
   - component: {fileID: 8637229688401896946}
   - component: {fileID: 8936210269203623224}
@@ -60,6 +61,7 @@ MonoBehaviour:
   statComponent: {fileID: 8637229688401896946}
   movementComponent: {fileID: 6126475282744627370}
   lifeComponent: {fileID: 2543519075771321424}
+  attackComponent: {fileID: 5624438357122337773}
 --- !u!114 &3210883320239082284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +88,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MovementComponent
   body: {fileID: 3873076954353275594}
   statComponent: {fileID: 8637229688401896946}
+--- !u!114 &5624438357122337773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202842604318721309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff36d9f28eaedb04ca4494051911d3ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackComponent
+  weaponMountPoint: {fileID: 6212824190552222622}
+  startingWeaponPrefabList:
+  - {fileID: 3526443994732056993, guid: adf073ae0a2204a4e872462c6bd6a237, type: 3}
 --- !u!114 &2543519075771321424
 MonoBehaviour:
   m_ObjectHideFlags: 0

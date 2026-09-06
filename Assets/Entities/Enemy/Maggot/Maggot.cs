@@ -4,6 +4,7 @@ public class Maggot : Enemy
 {
     [SerializeField] private MovementComponent movementComponent;
     [SerializeField] private LifeComponent lifeComponent;
+    [SerializeField] private AttackComponent attackComponent;
 
 
 
@@ -22,7 +23,7 @@ public class Maggot : Enemy
 
     void Update()
     {
-        
+        attackComponent.AttackAll();
     }
 
 

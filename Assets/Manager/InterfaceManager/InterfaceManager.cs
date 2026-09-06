@@ -6,7 +6,32 @@ using UnityEngine;
 /// </summary>
 public class InterfaceManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public static InterfaceManager Instance { get; private set; }
+    private LevelUpUI levelUpUI;
+    public LevelUpUI GetLevelUpUI()
+    {
+        return levelUpUI;
+    }
+    public void SetLevelUpUI(LevelUpUI levelUpUI)
+    {
+        this.levelUpUI = levelUpUI;
+    }
+
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        
+        DontDestroyOnLoad(gameObject);
+    }
+
+
     void Start()
     {
         

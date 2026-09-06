@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,12 @@ public class Player : MonoBehaviour
     [SerializeField] private AttackComponent attackComponent;
     [SerializeField] private LifeComponent lifeComponent;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private UpgradeReceiverComponent upgradeReceiverComponent;
+    public UpgradeReceiverComponent GetUpgradeReceiverComponent()
+    {
+        return upgradeReceiverComponent;
+    }
+    [SerializeField] private List<UpgradeData> initUpgrades = new();
     private InputAction moveAction;
     
 
@@ -16,6 +23,11 @@ public class Player : MonoBehaviour
     {
         moveAction = InputSystem.actions.FindAction("Move");
         movementComponent.SetBody(body);
+
+        foreach (UpgradeData upgrade in initUpgrades)
+        {
+            upgradeReceiverComponent.ApplyUpgrade(upgrade);
+        }
     }
 
 

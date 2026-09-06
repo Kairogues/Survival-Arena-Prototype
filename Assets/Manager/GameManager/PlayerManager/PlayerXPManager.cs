@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerXPManager : MonoBehaviour
@@ -35,12 +36,20 @@ public class PlayerXPManager : MonoBehaviour
             currentLevel++;
 
             LeveledUp?.Invoke(currentLevel);
-            // await Task.Run();
+            TriggerLevelUp();
             Debug.Log("Level up! Now in level " + currentLevel);
 
             currentMaxXP = GetXPRequiredForLevelUp(currentLevel + 1);
         }
 
         GainedXP?.Invoke(currentXP);
+    }
+
+
+    public void TriggerLevelUp()
+    {
+        UpgradeReceiverComponent currentUpgradeReceiverComponent = GameManager.Instance.playerManager.currentPlayer.GetUpgradeReceiverComponent();
+        List<UpgradeData> options = GameManager.Instance.upgradeManager.GetRandomUpgradeOptions(currentUpgradeReceiverComponent);
+        InterfaceManager.Instance.GetLevelUpUI().Show(options, currentUpgradeReceiverComponent);
     }
 }

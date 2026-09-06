@@ -47,6 +47,7 @@ public class LightningOrbWeapon : Weapon
 
     [SerializeField] private LightningOrbProjectile projectilePrefab;
     [SerializeField] private Transform firePoint;
+    private bool hasSpawnedForThisLevel = false;
 
 
 
@@ -61,16 +62,21 @@ public class LightningOrbWeapon : Weapon
         }
 
         onAttackAction = ExecuteAttack;
+        hasSpawnedForThisLevel = false;
     }
 
 
     private void ExecuteAttack(AttackContext context)
     {
-        LightningOrbProjectile.ResetOrb();
+        if (hasSpawnedForThisLevel == false) {
+            LightningOrbProjectile.ResetOrb();
 
-        for (int i = 0; i < currentLevelConfig.projectileCount; i++)
-        {
-            SpawnOrb(context.position, context.rotationFromHeadingDirection);
+            for (int i = 0; i < currentLevelConfig.projectileCount; i++)
+            {
+                SpawnOrb(context.position, context.rotationFromHeadingDirection);
+            }
+
+            hasSpawnedForThisLevel = true;
         }
     }
 
