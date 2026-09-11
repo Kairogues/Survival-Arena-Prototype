@@ -1,4 +1,4 @@
-# Project1 — 2D Survival Game
+# Survival Arena Prototype — 2D Survival Game
 
 A 2D survival game prototype inspired by the Vampire Survivors-style survival-arena genre, developed with **Unity and C#**.
 
