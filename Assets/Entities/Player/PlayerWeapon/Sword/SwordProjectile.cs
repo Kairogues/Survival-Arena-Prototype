@@ -66,7 +66,7 @@ public class SwordProjectile : Projectile
 
     private void ProcessHitObstacle()
     {
-        SelfDestruct();
+        // SelfDestruct();
     }
 
 

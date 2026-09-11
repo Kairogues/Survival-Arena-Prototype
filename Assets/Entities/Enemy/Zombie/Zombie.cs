@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Zombie : Enemy
 {
-    [SerializeField] private MovementComponent movementComponent;
     [SerializeField] private LifeComponent lifeComponent;
     [SerializeField] private AttackComponent attackComponent;
-    [SerializeField] protected SpriteRenderer spriteRenderer;
+    [SerializeField] private PathfindingComponent pathfindingComponent;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
 
 
@@ -49,10 +49,10 @@ public class Zombie : Enemy
 
     protected void FlipSprite()
     {
-        if (movementComponent.GetCurrentDirection().x < 0)
+        if (pathfindingComponent.GetCurrentDirection().x < 0)
         {
             spriteRenderer.flipX = true;
-        } else if (movementComponent.GetCurrentDirection().x > 0)
+        } else if (pathfindingComponent.GetCurrentDirection().x > 0)
         {
             spriteRenderer.flipX = false;
         }

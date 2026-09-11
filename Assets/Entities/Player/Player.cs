@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 moveDirection = moveAction.ReadValue<Vector2>().normalized;
-
+        
         if (moveDirection.x < 0)
         {
             spriteRenderer.flipX = true;

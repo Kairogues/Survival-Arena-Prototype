@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Slime : Enemy
 {
-    [SerializeField] private MovementComponent movementComponent;
     [SerializeField] private LifeComponent lifeComponent;
     [SerializeField] private AttackComponent attackComponent;
+    [SerializeField] private PathfindingComponent pathfindingComponent;
 
 
 

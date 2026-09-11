@@ -6,12 +6,20 @@ using UnityEngine.AI;
 public class PathfindingComponent : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
+    
     [SerializeField] private StatComponent statComponent;
+    
     private Stat movementStat;
     private float currentSpeed = 0.0f;
     public void SetSpeed(float newSpeed)
     {
         currentSpeed = newSpeed;
+    }
+    private Vector2 currentDirection;
+
+    public Vector2 GetCurrentDirection()
+    {
+        return currentDirection.normalized;
     }
 
 
@@ -20,6 +28,8 @@ public class PathfindingComponent : MonoBehaviour
     {
         agent.updateRotation = false;
 		agent.updateUpAxis = false;
+        
+        //agent.updatePosition = false;
 
         movementStat = statComponent.GetStat(StatType.MOVEMENT_SPEED);
         currentSpeed = movementStat.GetCurrentValue();
@@ -31,9 +41,14 @@ public class PathfindingComponent : MonoBehaviour
     {
         agent.speed = currentSpeed;
         agent.SetDestination(GameManager.Instance.playerManager.currentPlayer.transform.position);
+    
+        Vector3 nextPosition = agent.steeringTarget;
+        Vector2 direction = (nextPosition - transform.position).normalized;
+
+        currentDirection = direction;
     }
 
-
+    
     private void UpdateSpeedAfterChanged(float oldValue, float currentValue, float maxValue)
     {
         SetSpeed(currentValue);

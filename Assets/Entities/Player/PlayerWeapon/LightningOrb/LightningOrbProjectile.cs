@@ -25,7 +25,7 @@ public class LightningOrbProjectile : Projectile
         playerTransform = GameManager.Instance.playerManager.currentPlayer.transform;
     }
 
-
+    /*
     private void Update()
     {
         if (playerTransform == null)
@@ -46,6 +46,14 @@ public class LightningOrbProjectile : Projectile
         {
             movementComponent.UpdateDirection(Vector2.zero);
         }
+    }
+    */
+
+    private void FixedUpdate()
+    {
+        Vector2 targetPosition = CalculateTargetOrbitPosition();
+
+        body.MovePosition(targetPosition);
     }
 
 

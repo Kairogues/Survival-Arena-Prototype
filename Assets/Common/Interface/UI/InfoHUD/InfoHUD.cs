@@ -1,12 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class InfoHUD : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI waveText;
     [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Image healthbar;
     [SerializeField] private TextMeshProUGUI levelText;
-    [SerializeField] private TextMeshProUGUI xpText;
+    [SerializeField] private Image levelBar;
 
 
 
@@ -28,18 +30,20 @@ public class InfoHUD : MonoBehaviour
 
     private void OnHealthChanged(float oldHealth, float newHealth, float maxHealth)
     {
-        healthText.text = "Health: " + newHealth + "/" + maxHealth;
+        healthText.text = newHealth + "/" + maxHealth;
+        healthbar.fillAmount = newHealth / maxHealth;
     }
 
 
     private void OnLevelUp(int newLevel)
     {
-        levelText.text = "Level: " + newLevel;
+        levelText.text = "Lv " + newLevel;
+        levelBar.fillAmount = 0.0f;
     }
 
 
     private void OnGainedXP(int currentAmount, int maxAmount)
     {
-        xpText.text = "XP " + currentAmount + "/" + maxAmount;
+        levelBar.fillAmount = (float) currentAmount / maxAmount;
     }
 }
