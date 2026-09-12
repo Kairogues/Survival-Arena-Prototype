@@ -21,6 +21,7 @@ public class SpawnParticleUponDeath : MonoBehaviour
 
     private void SpawnParticle()
     {
+        Instantiate(particleSystem, transform.position, Quaternion.identity);
         particleSystem.Play();
     }
 }

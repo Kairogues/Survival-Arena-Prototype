@@ -32,7 +32,7 @@ public class LifeComponent : MonoBehaviour
 
     public void Damage(float amount)
     {
-        ApplicationManager.Instance.audioManager.PlaySoundFX(hurtSoundFX, transform, 1f);
+        ApplicationManager.Instance.audioManager.PlaySoundFX(hurtSoundFX, transform, 0.8f);
 
         float oldHealth = healthStat.GetCurrentValue();
         float newHealth = oldHealth - amount;

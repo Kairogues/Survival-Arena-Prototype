@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 8936210269203623224}
   - component: {fileID: 6163174835129862444}
   - component: {fileID: 6467185990948736985}
+  - component: {fileID: 5274013063852622324}
   - component: {fileID: 3873076954353275594}
   - component: {fileID: 3408344317359955033}
   - component: {fileID: 1286239446079547794}
@@ -158,7 +159,6 @@ Transform:
   m_Children:
   - {fileID: 2461523917857959657}
   - {fileID: 7582042611436366480}
-  - {fileID: 5884266304186348630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2923416942090107475
@@ -289,6 +289,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PathfindingComponent
   agent: {fileID: 1286239446079547794}
   statComponent: {fileID: 8637229688401896946}
+--- !u!114 &5274013063852622324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5202842604318721309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd7156a47c0d9464caa7ec4da3adc3a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnParticleUponDeath
+  lifeComponent: {fileID: 2543519075771321424}
+  particleSystem: {fileID: 1879704255856680966, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
 --- !u!50 &3873076954353275594
 Rigidbody2D:
   serializedVersion: 5
@@ -405,65 +419,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6212824190552222622}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4133983280686722706
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 6212824190552222622}
-    m_Modifications:
-    - target: {fileID: 4163127747072571292, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_Name
-      value: MonsterDieParticle
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
---- !u!4 &5884266304186348630 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7563732777727662788, guid: ae347a61d11e021469ea1113d36dc150, type: 3}
-  m_PrefabInstance: {fileID: 4133983280686722706}
-  m_PrefabAsset: {fileID: 0}
