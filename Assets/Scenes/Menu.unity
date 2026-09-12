@@ -785,8 +785,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da2aaa00d2eb8d4184e800d9cf1a8c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  targetWidth: 540
-  targetHeight: 960
 --- !u!4 &586940677
 Transform:
   m_ObjectHideFlags: 0

@@ -82,7 +82,7 @@ public class StaffWeapon : Weapon
     {
         for (int i = 0; i < currentLevelConfig.projectileCount; i++)
         {
-            ApplicationManager.Instance.audioManager.PlaySoundFX(attackSoundFX, transform, 1f);
+            ApplicationManager.Instance.audioManager.PlaySoundFX(attackSoundFX, transform, 0.75f);
             SpawnBullet(context.position, context.rotationFromHeadingDirection);
 
             if (i < currentLevelConfig.projectileCount - 1)

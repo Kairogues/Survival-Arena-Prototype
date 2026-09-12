@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private AttackComponent attackComponent;
     [SerializeField] private LifeComponent lifeComponent;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private PlayerAnimator playerAnimator;
     [SerializeField] private UpgradeReceiverComponent upgradeReceiverComponent;
     public UpgradeReceiverComponent GetUpgradeReceiverComponent()
     {
@@ -52,5 +53,19 @@ public class Player : MonoBehaviour
         movementComponent.UpdateDirection(moveDirection);
         attackComponent.SetMovingDirection(moveDirection);
         attackComponent.AttackAll();
+        AnimateVisual();
+    }
+
+
+    private void AnimateVisual()
+    {
+        if (movementComponent.GetCurrentDirection() != Vector2.zero)
+        {
+            playerAnimator.UpdateIsWalking(true);
+        } else
+        {
+            playerAnimator.UpdateIsWalking(false);
+        }
+        
     }
 }

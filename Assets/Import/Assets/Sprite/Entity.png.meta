@@ -80,7 +80,9 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
+  spriteTessellationMethod: 0
   spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -120,6 +122,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -127,12 +155,12 @@ TextureImporter:
       name: Player
       rect:
         serializedVersion: 2
-        x: 5
-        y: 97
-        width: 22
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 6
+        y: 98
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,12 +177,12 @@ TextureImporter:
       name: Zombie
       rect:
         serializedVersion: 2
-        x: 71
-        y: 63
-        width: 20
-        height: 34
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 72
+        y: 64
+        width: 18
+        height: 32
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,12 +199,12 @@ TextureImporter:
       name: Slime
       rect:
         serializedVersion: 2
-        x: 7
-        y: 73
-        width: 18
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 8
+        y: 74
+        width: 16
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,12 +221,12 @@ TextureImporter:
       name: Maggot
       rect:
         serializedVersion: 2
-        x: 35
-        y: 74
-        width: 25
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 36
+        y: 75
+        width: 23
+        height: 12
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,12 +243,12 @@ TextureImporter:
       name: Skeleton
       rect:
         serializedVersion: 2
-        x: 100
-        y: 65
-        width: 22
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 101
+        y: 66
+        width: 20
+        height: 28
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
