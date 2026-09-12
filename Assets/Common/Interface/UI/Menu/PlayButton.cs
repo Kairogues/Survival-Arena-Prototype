@@ -9,7 +9,7 @@ public class PlayButton : MonoBehaviour
     public void PlayGame()
     {
         Time.timeScale = 1.0f;
-        PlayPlayGameSound();
+        StartCoroutine(PlayPlayGameSound());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

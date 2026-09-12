@@ -22,6 +22,15 @@ public class InfoHUD : MonoBehaviour
     }
 
 
+    private void OnDestroy()
+    {
+        GameManager.Instance.waveManager.WaveStarted -= OnWaveStart;
+        GameManager.Instance.playerManager.currentPlayerLifeComponent.HealthChanged -= OnHealthChanged;
+        GameManager.Instance.playerManager.GetPlayerXPManager().LeveledUp -= OnLevelUp;
+        GameManager.Instance.playerManager.GetPlayerXPManager().GainedXP -= OnGainedXP;
+    }
+
+
     private void OnWaveStart(WaveData waveData)
     {
         waveText.text = "WAVE " + waveData.waveIndex;

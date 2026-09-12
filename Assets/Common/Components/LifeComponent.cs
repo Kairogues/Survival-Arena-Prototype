@@ -21,9 +21,11 @@ public class LifeComponent : MonoBehaviour
     public void Heal(float amount)
     {
         float oldHealth = healthStat.GetCurrentValue();
-        float newHealth = healthStat.GetCurrentValue() + amount;
+        float newHealth = oldHealth + amount;
+        newHealth = Mathf.Min(newHealth, healthStat.GetMaxValue());
+
         healthStat.UpdateStat(newHealth);
-        if (newHealth > healthStat.GetMaxValue()) newHealth = healthStat.GetMaxValue();
+
         HealthChanged?.Invoke(oldHealth, newHealth, healthStat.GetMaxValue());
     }
 
@@ -31,19 +33,19 @@ public class LifeComponent : MonoBehaviour
     public void Damage(float amount)
     {
         ApplicationManager.Instance.audioManager.PlaySoundFX(hurtSoundFX, transform, 1f);
+
         float oldHealth = healthStat.GetCurrentValue();
-        float newHealth = healthStat.GetCurrentValue() - amount;
-        
-        if (newHealth <= 0)
-        {
-            healthStat.UpdateStat(0);
-            Die();
-        }
+        float newHealth = oldHealth - amount;
+        newHealth = Mathf.Max(newHealth, 0f);
 
         healthStat.UpdateStat(newHealth);
 
-        if (newHealth > healthStat.GetMaxValue()) newHealth = healthStat.GetMaxValue();
         HealthChanged?.Invoke(oldHealth, newHealth, healthStat.GetMaxValue());
+
+        if (newHealth <= 0)
+        {
+            Die();
+        }
     }
 
 

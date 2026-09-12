@@ -9,7 +9,7 @@ public class GoBackButton : MonoBehaviour
 
     public void GoBackToMenu()
     {
-        PlayGoBackSound();
+        StartCoroutine(PlayGoBackSound());
         SceneManager.LoadScene(0);
     }
 
